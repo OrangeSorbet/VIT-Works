@@ -1,0 +1,6 @@
+print("Appends text to the end of a file")
+file = open("6.7.zfile.txt", "a")
+str = input("Enter text to append: ")
+file.write(f"{str}\n")
+print("Done")
+file.close()

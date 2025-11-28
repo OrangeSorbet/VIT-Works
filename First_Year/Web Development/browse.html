@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We have a collection of ">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/browse.css" type="text/css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="test.css">
+    <script src="css/filter.js"></script>
+    <title>Synercom</title>
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar">
+        <div class="topnav">
+            <div class="logo">
+                <img class="company-logo" src="images/logo2.png">
+                <span class="company-name">Synercom</span>
+            </div>
+            <div class="search-bar">
+                <input type="search" placeholder="Search Exciting Offers">
+            </div>
+            <div class="upper-right">
+                <a href="favorites.html"><img src="https://www.svgrepo.com/show/532473/heart.svg" class="icon"></a>
+            </div>
+            <div class="upper-right">
+                <a href="cart.html"><img src="https://www.svgrepo.com/show/533043/cart-shopping.svg" class="icon"></a>
+            </div>
+            <div class="upper-right">
+                <a href="account.html"><img src="https://www.svgrepo.com/show/512733/profile-round-1346.svg" class="icon"></a>
+            </div>
+        </div>
+        <hr width="103.5%" style="transform: translate(-2%, -5px); padding: 1px;">
+        <div class="bottomnav">
+            <div class="nav">
+                <a href="home.html">Home</a>
+                <a href="category.html">Categories</a>
+                <a href="#footer">Contact Us</a>
+                <a  href="browse.html">Browse</a>
+            </div>
+            <div class="auth-links">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Signup</a>
+            </div>
+        </div>
+    </nav>
+    <hr width="103.5%" style="transform: translate(-3%, -8px); padding: 1px;">
+    <!--navbar-->
+
+
+
+
+    <!--Filter-->
+<span>
+<div class="browse">
+    <div class="container">
+        <div class="layout">
+            <div class="filter-container">
+                <h2>All Categories</h2>
+                <!-- GPU -->
+                <div class="category">
+                    <input type="checkbox" id="gpu-toggle" class="category-toggle">
+                    <label for="gpu-toggle" class="category-label">GPU</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Nvidia</label>
+                            <label><input type="checkbox"> AMD</label>
+                            <label><input type="checkbox"> Intel</label>
+                            <label><input type="checkbox"> Samsung</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Capacity</h4>
+                            <label><input type="checkbox"> 1-4gb</label>
+                            <label><input type="checkbox"> 4-8gb</label>
+                            <label><input type="checkbox"> 8-16gb</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- CPU -->
+                <div class="category">
+                    <input type="checkbox" id="cpu-toggle" class="category-toggle">
+                    <label for="cpu-toggle" class="category-label">CPU</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>CPU Type</h4>
+                            <label><input type="checkbox"> Intel Core i3</label>
+                            <label><input type="checkbox"> Intel Core i5</label>
+                            <label><input type="checkbox"> Intel Core i7</label>
+                            <label><input type="checkbox"> Intel Core i9</label>
+                            <label><input type="checkbox"> AMD Ryzen 5</label>
+                            <label><input type="checkbox"> AMD Ryzen 7</label>
+                            <label><input type="checkbox"> AMD Ryzen 9</label>
+                            <label><input type="checkbox"> Snapdragon X Plus</label>
+                            <label><input type="checkbox"> Snapdragon X Elite</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Intel</label>
+                            <label><input type="checkbox"> AMD</label>
+                            <label><input type="checkbox"> Snapdragon</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Usage</h4>
+                            <label><input type="checkbox"> Business</label>
+                            <label><input type="checkbox"> Gaming</label>
+                            <label><input type="checkbox"> Student</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- PSU -->
+                <div class="category">
+                    <input type="checkbox" id="psu-toggle" class="category-toggle">
+                    <label for="psu-toggle" class="category-label">PSU</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Corsair</label>
+                            <label><input type="checkbox"> Zebronics</label>
+                            <label><input type="checkbox"> Ant Esports</label>
+                            <label><input type="checkbox"> Cooler Master</label>
+                            <label><input type="checkbox"> MSI</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Power</h4>
+                            <label><input type="checkbox"> 200-400W</label>
+                            <label><input type="checkbox"> 400-600W</label>
+                            <label><input type="checkbox"> 600-800W</label>
+                            <label><input type="checkbox"> 800-1000W</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- RAM -->
+                <div class="category">
+                    <input type="checkbox" id="ram-toggle" class="category-toggle">
+                    <label for="ram-toggle" class="category-label">RAM</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Kingston</label>
+                            <label><input type="checkbox"> Ant Esports</label>
+                            <label><input type="checkbox"> Corsair</label>
+                            <label><input type="checkbox"> Samsung</label>
+                            <label><input type="checkbox"> Crucial</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Capacity</h4>
+                            <label><input type="checkbox"> 2-8GB</label>
+                            <label><input type="checkbox"> 8-32GB</label>
+                            <label><input type="checkbox"> 32-128GB</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>RAM Type</h4>
+                            <label><input type="checkbox"> DDR 3</label>
+                            <label><input type="checkbox"> DDR 4</label>
+                            <label><input type="checkbox"> DDR 5</label>
+                            <label><input type="checkbox"> SDRAM</label>
+                            <label><input type="checkbox"> SODIMM</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- SSD -->
+                <div class="category">
+                    <input type="checkbox" id="ssd-toggle" class="category-toggle">
+                    <label for="ssd-toggle" class="category-label">SSD</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Kingston</label>
+                            <label><input type="checkbox"> WD</label>
+                            <label><input type="checkbox"> Samsung</label>
+                            <label><input type="checkbox"> Seagate</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Capacity</h4>
+                            <label><input type="checkbox"> 128GB-512GB</label>
+                            
+                            <label><input type="checkbox"> 512GB-2TB</label>
+                            <label><input type="checkbox"> 2TB-8TB</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>SSD Type</h4>
+                            <label><input type="checkbox"> NVMe</label>
+                            
+                            <label><input type="checkbox"> M.2 SATA</label>
+                            <label><input type="checkbox"> mSATA</label>
+                            <label><input type="checkbox"> 2.5"SATA</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Motherboard -->
+                <div class="category">
+                    <input type="checkbox" id="motherboard-toggle" class="category-toggle">
+                    <label for="motherboard-toggle" class="category-label">Mother Board</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> MSI</label>
+                            <label><input type="checkbox"> ASUS</label>
+                            <label><input type="checkbox"> Supermicro</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>SPU Socket</h4>
+                            <label><input type="checkbox"> Intel</label>
+                            <label><input type="checkbox"> AMD</label>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- HDD -->
+                <div class="category">
+                    <input type="checkbox" id="hdd-toggle" class="category-toggle">
+                    <label for="hdd-toggle" class="category-label">HDD</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Seagate</label>
+                            <label><input type="checkbox"> Samsung</label>
+                            <label><input type="checkbox"> Western Digital</label>
+                            <label><input type="checkbox"> Sandisk Professional</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Capacity</h4>
+                            <label><input type="checkbox">512TB-2TB </label>
+                            <label><input type="checkbox">2TB-16TB </label>
+                            <label><input type="checkbox"> 16TB-64TB</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Data Transfer Rate</h4>
+                            <label><input type="checkbox">Upto 2500Mbit/s </label>
+                            <label><input type="checkbox">2500-5000Mbit/s </label>
+                            <label><input type="checkbox"> 5000-7000Mbits/s</label>
+                            <label><input type="checkbox"> 7500Mbit/s and above</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- PC Casing -->
+                <div class="category">
+                    <input type="checkbox" id="casing-toggle" class="category-toggle">
+                    <label for="casing-toggle" class="category-label">PC Casing</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            <h4>Company</h4>
+                            <label><input type="checkbox"> Geonix</label>
+                            <label><input type="checkbox">Zebronics</label>
+                            <label><input type="checkbox">Dell</label>
+                            <label><input type="checkbox"> HP</label>
+                            <label><input type="checkbox"> ANT</label>
+                        </div>
+                        <div class="subcategory">
+                            <h4>Volume</h4>
+                            <label><input type="checkbox"> Mini-itx</label>
+                            <label><input type="checkbox">Micro-atx</label>
+                            <label><input type="checkbox">Atx</label>
+                            <label><input type="checkbox"> Eatx</label>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Accessories -->
+                <div class="category">
+                    <input type="checkbox" id="accessories-toggle" class="category-toggle">
+                    <label for="accessories-toggle" class="category-label">Accessories</label>
+                    <div class="subcategories">
+                        <div class="subcategory">
+                            
+                            <label><input type="checkbox"> Keyboard</label>
+                            <label><input type="checkbox"> Mouse</label>
+                            <label><input type="checkbox"> Headphones</label>
+                            <label><input type="checkbox"> External Hard Drive</label>
+                            <label><input type="checkbox"> Pen Drive</label>
+                            <label><input type="checkbox"> Extension Board</label>
+                            <label><input type="checkbox"> Controller</label>
+                            <label><input type="checkbox"> Microphone</label>
+                            <label><input type="checkbox"> Mousepad</label>
+                            <label><input type="checkbox"> Gaming Chair</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Filter-->
+
+
+    <!--Grid-->
+    <div class="grid-cont">
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="item-cont">
+            <div class="image-cont">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/03/Intel-Rocker-Lake-2-e1615908186584.jpg" class="image-cont">
+                <div class="img-desc"><p>CPU Intel jrhgiawheri</p></div>
+            </div>
+        </div>
+        <div class="club empty">
+        </div>
+    </div>
+</div>
+</span>
+    <!--Grid-->
+
+
+    <!--footer-->
+<div class="footer" id="footer">
+    <div class="footer-content">
+        <div class="footer-sections">
+            <div class="footer-column">
+                <h3>NEED HELP</h3>
+                <ul>
+                    <li><a href="mailto:synercom@gmail.com" target="_blank">Contact Us</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <ul>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Gift Vouchers</a></li>
+                    <li><a href="#">Community Initiatives</a></li>
+                    <li><a href="#">Synergy Army</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>MORE INFO</h3>
+                <ul>
+                    <li><a href="#">T&C</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>STORE NEAR ME</h3>
+                <ul>
+                    <li><a href="#">FC Road</a></li>
+                    <li><a href="#">Vimannagar</a></li>
+                    <li><a href="#">Kondhwa</a></li>
+                    <li><a href="#">MIDC</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app-section">
+            <h3>📱 EXPERIENCE THE SYNERCOM APP</h3>
+            <div class="app-buttons">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Download_on_the_App_Store_RGB_blk.svg/2560px-Download_on_the_App_Store_RGB_blk.svg.png" alt="Download on the App Store">
+            </div>
+        </div>
+
+        <div class="social-section">
+            <div>Follow Us:</div>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="background: #3b5998;"></a>
+                <a href="https://I=instagram.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" style="background: #e1306c;"></a>
+                <a href="https://snapchat.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fr/7/75/Snapchat.png" alt="Snapchat" style="background: #fffc00;"></a>
+                <a href="https://x.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/1200px-X_logo_2023.svg.png" alt="Twitter" style="background: #ffffff;"></a>
+            </div>
+        </div>
+
+        <div class="payment-shipping">
+            <div>
+                <span>100% Secure Payment:</span>
+                <img src="https://images.yourstory.com/cs/images/companies/logosC2051575978102071png?fm=auto&ar=1%3A1&mode=fill&fill=solid&fill-color=fff&format=auto&w=384&q=75" alt="PhonePe">
+                <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2020/11/25/5fb5308e224f3.png" alt="Google Pay">
+                <img src="https://m.media-amazon.com/images/G/01/amazonpayments/documentation/AmazonPay_BrandAssets/Logos/amazonpay-secondary-logo-rgb_clr.png" alt="Amazon Pay">
+                <img src="https://banner2.cleanpng.com/20180403/qte/avhloeech.webp" alt="Mastercard">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEt03XLHujIry51KoZxt0DLJDqQMz9k5IqUA&s" alt="Mobikwik">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYMs5YUA9Ro5Cq4Z27hlXSSHH6Y7CK6Tc6A&s" alt="Paytm">
+            </div>
+            <div>
+                <span>Shipping Partners:</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/DTDC_logo.png" alt="DTDC">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/United_Parcel_Service_logo_2014.svg/1200px-United_Parcel_Service_logo_2014.svg.png" alt="UPS">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/FedEx_logo.jpg/640px-FedEx_logo.jpg" alt="FedEx">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Blinkit-yellow-rounded.svg" alt="Blinkit">
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->

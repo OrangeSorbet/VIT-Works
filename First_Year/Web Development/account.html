@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We have a collection of ">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/account.css" type="text/css">
+    <link rel="stylesheet" href="css/footer.css" type="text/css">
+    <script src="css/slideshow.js"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar">
+        <div class="topnav">
+            <div class="logo">
+                <img class="company-logo" src="images/logo2.png">
+                <span class="company-name">Synercom</span>
+            </div>
+            <div class="search-bar">
+                <input type="search" placeholder="Search Exciting Offers">
+            </div>
+            <div class="upper-right">
+                <a href="favorites.html"><img src="https://www.svgrepo.com/show/532473/heart.svg" class="icon"></a>
+            </div>
+            <div class="upper-right">
+                <a href="cart.html"><img src="https://www.svgrepo.com/show/533043/cart-shopping.svg" class="icon"></a>
+            </div>
+            <div class="upper-right">
+                <a href="account.html"><img src="https://www.svgrepo.com/show/512733/profile-round-1346.svg" class="icon"></a>
+            </div>
+        </div>
+        <hr width="103.5%" style="transform: translate(-2%, -5px); padding: 1px;">
+        <div class="bottomnav">
+            <div class="nav">
+                <a href="home.html">Home</a>
+                <a href="category.html">Categories</a>
+                <a href="#footer">Contact Us</a>
+                <a  href="browse.html">Browse</a>
+            </div>
+            <div class="auth-links">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Signup</a>
+            </div>
+        </div>
+    </nav>
+    <hr width="103.5%" style="transform: translate(-3%, -8px); padding: 1px;">
+    <!--navbar-->
+    <div>
+        <div class="account">
+            <div class="content artistproductlist viewContainer">
+                <div class="container plisting">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 showdesktop">
+                            <div>
+                                <div class="smbox p15 mt5">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-8 col-8">
+                                            <span class="fbold">name</span> 
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <ul class="navlist leftlist text-inherit">
+                                    <li><a href="/orders">Orders <span class="pull-right op_5 flighter">(Track your order here)</span></a></li></ul> 
+                                <ul class="navlist leftlist text-inherit">
+                                    <li><a href="/my-gift-voucher">Gift Vouchers</a></li><li><a href="/profile" class="active router-link-active">Profile</a></li></ul>  
+                                    <div>
+                                        <button type="button" class="btn btn-outline-danger btn-block btn-sm text-uppercase mt15 ptb10">Delete My Account</button>
+                                            </div> 
+                                                <button type="button" class="btn btn-outline-danger btn-block btn-sm text-uppercase mt15 ptb10 myordersidebar">Logout</button>
+                                        <div class="col-lg-9 col-md-8 col-sm-12 col-12">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12 op_5 text-uppercase">
+                                                        <div class="rtitle">Edit Profile</div>
+                                                        <div class="ctabcontent mt20">
+                                                            <div class="editform">
+                                                                <div class="row justify-content-between">
+                                                                    <div class="col-lg-5 col-md-6 col-sm-12 col-12">
+                                                                        <div class="form-group">
+                                                                            <label>Email Id
+                                                                            </label> 
+                                                                            <input type="text" name="email" maxlength="95" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ctabcontent">
+                                                            <div class="editform">
+                                                                <div id="myform" enctype="form-data">General Information
+                                                                   <div class="row justify-content-between horidivider">
+                                                                    <div class="col-lg-5 col-md-6 col-sm-12 col-12">
+                                                                        <div class="form-group">
+                                                                            <label>First Name *</label> 
+                                                                            <input type="text" name="firstname" maxlength="32" class="form-control"></div> 
+                                                                            <div class="form-group">
+                                                                                <label>Last Name</label> 
+                                                                                <input type="text" name="lastname" maxlength="32" class="form-control"></div> 
+                                                                                <label>Gender</label> 
+                                                                                <div class="form-group">
+                                                                                    <label class="custom-control custom-radio">
+                                                                                        <input id="radio1" name="gender" type="radio" value="M" class="custom-control-input"> 
+                                                                                        <span class="custom-control-description">Male</span></label>
+                                                                                         <label class="custom-control custom-radio">
+                                                                                            <input id="radio2" name="gender" type="radio" value="F" class="custom-control-input"> 
+                                                                                             <span class="custom-control-description">Female</span></label> 
+                                                                                             <label class="custom-control custom-radio">
+                                                                                                <input id="radio3" name="gender" type="radio" value="Others" class="custom-control-input"> 
+                                                                                                <span class="custom-control-description">Other</span></label> 
+                                                                                                <div class="message">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-lg-5 col-md-6 col-sm-12 col-12">
+                                                                                            <div class="form-group">
+                                                                                                <label>Date of Birth</label> 
+                                                                                                <div data-provide="datepicker" class="input-group date customdate">
+                                                                                                    <div class="vdp-datepicker"><div>
+                                                                                                         <input type="text" name="birthdate" placeholder="Please enter your birthdate" readonly="readonly" class="form-control tranparent"></div> 
+                                                                                                        <div class="vdp-datepicker__calendar" style="display: none;">
+                                                                                                            <header>
+                                                                                                                <span class="prev">&lt;</span> 
+                                                                                                                <span class="up">Jan 2025</span> 
+                                                                                                                <span class="next">&gt;</span></header> 
+                                                                                                                <div><span class="cell day-header">Sun</span>
+                                                                                                                    <span class="cell day-header">Mon</span>
+                                                                                                                    <span class="cell day-header">Tue</span>
+                                                                                                                    <span class="cell day-header">Wed</span>
+                                                                                                                    <span class="cell day-header">Thu</span>
+                                                                                                                    <span class="cell day-header">Fri</span>
+                                                                                                                    <span class="cell day-header">Sat</span>
+                                                                                                                    <span class="cell day blank"></span>
+                                                                                                                    <span class="cell day blank"></span>
+                                                                                                                    <span class="cell day blank"></span>
+                                                                                                                    <span track-by="timestamp" class="cell day">1</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">2</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">3</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sat">4</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sun">5</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">6</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">7</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">8</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">9</span>
+                                                                                                                    <span track-by="timestamp" class="cell day today">10</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sat">11</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sun">12</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">13</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">14</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">15</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">16</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">17</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sat">18</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sun">19</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">20</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">21</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">22</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">23</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">24</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sat">25</span>
+                                                                                                                    <span track-by="timestamp" class="cell day weekend sun">26</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">27</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">28</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">29</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">30</span>
+                                                                                                                    <span track-by="timestamp" class="cell day">31</span>
+                                                                                                                </div>
+                                                                                                            </div> 
+                                                                                                            <div class="vdp-datepicker__calendar" style="display: none;">
+                                                                                                                <header>
+                                                                                                                    <span class="prev">&lt;</span> 
+                                                                                                                    <span class="up">2025</span> 
+                                                                                                                    <span class="next">&gt;</span>
+                                                                                                                </header> 
+                                                                                                                <span track-by="timestamp" class="cell month">January</span>
+                                                                                                                <span track-by="timestamp" class="cell month">February</span>
+                                                                                                                <span track-by="timestamp" class="cell month">March</span>
+                                                                                                                <span track-by="timestamp" class="cell month">April</span>
+                                                                                                                <span track-by="timestamp" class="cell month">May</span>
+                                                                                                                <span track-by="timestamp" class="cell month">June</span>
+                                                                                                                <span track-by="timestamp" class="cell month">July</span>
+                                                                                                                <span track-by="timestamp" class="cell month">August</span>
+                                                                                                                <span track-by="timestamp" class="cell month">September</span>
+                                                                                                                <span track-by="timestamp" class="cell month">October</span>
+                                                                                                                <span track-by="timestamp" class="cell month">November</span>
+                                                                                                                <span track-by="timestamp" class="cell month">December</span>
+                                                                                                            </div> 
+                                                                                                            <div class="vdp-datepicker__calendar" style="display: none;">
+                                                                                                                <header>
+                                                                                                                    <span class="prev">&lt;</span> 
+                                                                                                                    <span>2020 - 2029</span> 
+                                                                                                                    <span class="next">&gt;</span>
+                                                                                                                </header> 
+                                                                                                                <span track-by="timestamp" class="cell year">2020</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2021</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2022</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2023</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2024</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2025</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2026</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2027</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2028</span>
+                                                                                                                <span track-by="timestamp" class="cell year">2029</span>
+                                                                                                            </div>
+                                                                                                        </div> 
+                                                                                                        <div class="input-group-addon">
+                                                                                                            <span class="fa fa-calendar"></span>
+                                                                                                        </div>
+                                                                                                    </div> 
+                                                                                                </div>
+                                                                                                <div class="form-group">
+                                                                                                    <label>Mobile Number *</label> 
+                                                                                                    <div>
+                                                                                                        <input type="mobile" name="telephone" maxlength="10" placeholder="Mobile Number" class="form-control">
+                                                                                                    </div> 
+                                                                                                </div> 
+                                                                                                <div class="form-group">
+                                                                                                    <label class="w100">Default Address<a href="/profile-address" class="pull-right">Change/Edit</a></label>
+                                                                                                    <textarea rows="3" readonly="readonly" disabled="disabled" class="form-control greybg">
+                                                                                                    </textarea>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div> 
+                                                                                        <div class="row justify-content-md-center">
+                                                                                            <div class="col-lg-5 col-md-6 col-12">
+                                                                                                <div class="text-center">
+                                                                                                    <button class="btn btn-primary w45 pointer text-uppercase btn-sm ptb10">Save</button> &nbsp;
+                                                                                               </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>

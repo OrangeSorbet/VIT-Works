@@ -13,15 +13,15 @@ typedef struct ThTree {
 } ThTree;
 
 void tree_add_TBT(ThTree **t, int value) {
-    ThTree *ptr = *t;
-    ThTree *par = NULL;
+    ThTree *curr = *t;
+    ThTree *parent = NULL;
 
-    while (ptr != NULL) {
-        par = ptr;
-        if (value < ptr->value)
-            ptr = ptr->left;
-        else if (ptr->rthread == 0)
-            ptr = ptr->right;
+    while (curr != NULL) {
+        parent = curr;
+        if (value < curr->value)
+            curr = curr->left;
+        else if (curr->rthread == 0)
+            curr = curr->right;
         else
             break;
     }
@@ -30,56 +30,55 @@ void tree_add_TBT(ThTree **t, int value) {
     newn->value = value;
     newn->rthread = 1;
 
-    if (par == NULL) {
+    if (parent == NULL) {
         *t = newn;
         newn->left = NULL;
         newn->right = NULL;
         return;
     }
 
-    if (value < par->value) {
-        newn->left = par->left;
-        newn->right = par;
-        par->left = newn;
+    if (value < parent->value) {
+        newn->left = parent->left;
+        newn->right = parent;
+        parent->left = newn;
     } else {
         newn->left = NULL;
-        newn->right = par->right;
-        par->right = newn;
-        par->rthread = 0;
+        newn->right = parent->right;
+        parent->right = newn;
+        parent->rthread = 0;
     }
 }
 
 void inorder_TBT(ThTree *root) {
-    ThTree *ptr = root;
-    while (ptr && ptr->left) ptr = ptr->left;
+    ThTree *curr = root;
+    while (curr && curr->left) curr = curr->left;
 
-    while (ptr != NULL) {
-        printf("%d ", ptr->value);
-        if (ptr->rthread)
-            ptr = ptr->right;
+    while (curr != NULL) {
+        printf("%d ", curr->value);
+        if (curr->rthread)
+            curr = curr->right;
         else {
-            ptr = ptr->right;
-            while (ptr && ptr->left)
-                ptr = ptr->left;
+            curr = curr->right;
+            while (curr && curr->left)
+                curr = curr->left;
         }
     }
 }
 
-void update_value_TBT(ThTree *t, int index, int value) {
-    if (t == NULL) {
-        return;
-    }
+void update_TBT(ThTree *t, int old_value, int new_value) {
+    if (t == NULL) return;
 
-    int count = 0;
     q_init(&q);
     q_enq(&q, t);
-    while(!q_empty(&q)) {
+
+    while (!q_empty(&q)) {
         ThTree *check = q_deq(&q);
-        if (index == count) {
-            check->value = value;
+
+        if (check->value == old_value) {
+            check->value = new_value;
             return;
         }
-        count++;
+
         if (check->left != NULL) {
             q_enq(&q, check->left);
         }
@@ -89,10 +88,9 @@ void update_value_TBT(ThTree *t, int index, int value) {
     }
 }
 
-void delete_value_TBT(ThTree **t, int index) {
+void delete_value_TBT(ThTree **t, int value) {
     if (*t == NULL) return;
 
-    int count = 0;
     ThTree *to_delete = NULL;
     ThTree *father = NULL;
     ThTree *youngest = NULL;
@@ -103,10 +101,9 @@ void delete_value_TBT(ThTree **t, int index) {
     while (!q_empty(&q)) {
         ThTree *check = q_deq(&q);
 
-        if (count == index) {
+        if (check->value == value && to_delete == NULL) {
             to_delete = check;
         }
-        count++;
 
         if (check->left != NULL) {
             q_enq(&q, check->left);
@@ -121,9 +118,7 @@ void delete_value_TBT(ThTree **t, int index) {
     }
     q_clear(&q);
 
-    if (to_delete == NULL || youngest == NULL) {
-        return;
-    }
+    if (to_delete == NULL || youngest == NULL) return;
 
     if (*t == to_delete && youngest == to_delete) {
         free(*t);

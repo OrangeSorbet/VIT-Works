@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "limits": "cpp",
+        "utility": "cpp",
+        "xiosbase": "cpp",
+        "stdlib.h": "c"
+    }
+}

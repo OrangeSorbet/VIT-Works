@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include "8.Threaded_BT.h"
+#include "9.AVL.h"
 
 int main() {
-    ThTree *t;
+    Tree *t;
 
     s_init(&s);
     q_init(&q);
     tree_init(&t);
 
     while(1) {
-        printf("Threaded Binary Tree maker - \n");
+        printf("AVL maker - \n");
         printf("-----------------------------\n");
         printf("1. Add to Tree\n");
         printf("2. Traverse Tree\n");
@@ -76,21 +76,22 @@ int main() {
             break;}
         case 3:
             {tree_read_breadthfirst(t);
-            printf("Enter value to update: ");
-            int update, new_value;
-            if(scanf("%d", &update) != 1 || update < 0) {
-                printf("Invalid input. Please enter an integer: ");
+            printf("Enter index to update: ");
+            int index, new_value;
+            int total_nodes = count_nodes(t);
+            if(scanf("%d", &index) != 1 || index < 0 || index >= total_nodes) {
+                printf("Invalid input. Please enter an integer index 0-%d.\n", total_nodes - 1);
                 while(getchar() != '\n');
                 break;
             }
             printf("Enter new value: ");
             if(scanf("%d", &new_value) != 1) {
-                printf("Invalid input. Please enter an integer: ");
+                printf("Invalid input. Please enter an integer value.\n");
                 while(getchar() != '\n');
                 break;
             }
-            update_TBT(&t, update, new_value);
-            printf("Value %d updated to %d.\n", update, new_value);
+            update_value_BST(&t, index, new_value);
+            printf("Value at index %d updated to %d.\n", index, new_value);
             break;}
         case 4:
             {tree_read_breadthfirst(t);
@@ -101,8 +102,27 @@ int main() {
                 while(getchar() != '\n');
                 break;
             }
-            delete_value_TBT(&t, del_value);
-            printf("%d deleted.\n", del_value);
+
+            printf("Enter number of occurrences to delete (0 to skip): ");
+            int n;
+            if(scanf("%d", &n) != 1 || n < 0) {
+                printf("Invalid input. Please enter a non-negative integer.\n");
+                while(getchar() != '\n');
+                break;
+            }
+
+            if(n == 0) {
+                printf("No nodes deleted.\n");
+            } else {
+                int deleted = 0;
+                for(int i = 0; i < n; i++) {
+                    Tree *old_t = t;
+                    t = delete_value_BST(t, del_value);
+                    if(t == old_t) break; // no more nodes found
+                    deleted++;
+                }
+                printf("%d occurrence(s) of %d deleted.\n", deleted, del_value);
+            }
             break;}
         case 5:
             delete_tree(&t);

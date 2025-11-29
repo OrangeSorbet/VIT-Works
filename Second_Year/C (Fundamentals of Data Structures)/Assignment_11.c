@@ -3,78 +3,80 @@
 #include "11.Hash.h"
 
 int main() {
-    int mainChoice;
+
+    int size = 10;
+    int table[10];
+    for(int i = 0; i < size; i++) table[i] = -1;  // -1 means empty
 
     while(1) {
-        printf("Hashing Menu:\n");
-        printf("1. Open Hashing\n");
-        printf("2. Closed Hashing\n");
-        printf("3. Exit\n");
+        int subChoice;
+        printf("\nHash Map:\n");
+        printf("1. Add\n");
+        printf("2. Read\n");
+        printf("3. Search\n");
+        printf("4. Update\n");
+        printf("5. Delete\n");
+        printf("6. Exit to main menu\n");
         printf("Enter choice: ");
-        if(scanf("%d", &mainChoice) != 1 || mainChoice < 1 || mainChoice > 3) {
-            printf("Invalid input. Please enter 1-3.\n");
+        if(scanf("%d", &subChoice) != 1 || subChoice < 1 || subChoice > 6) {
+            printf("Invalid input. Please enter 1-6.\n");
             while(getchar() != '\n');
             continue;
         }
 
-        if(mainChoice == 3) break;
+        if(subChoice == 6) break;
 
-        int size;
-        printf("Enter table size: ");
-        if(scanf("%d", &size) != 1 || size <= 0) {
-            printf("Invalid size.\n");
-            while(getchar() != '\n');
-            continue;
-        }
+        int value, oldValue, newValue;
 
-        void *table = NULL;
-        if(mainChoice == 1) {
-            Node **arr = calloc(size, sizeof(Node*));
-            table = arr;
-        } 
-        else {
-            int *arr = calloc(size, sizeof(int));
-            for(int i=0;i<size;i++) arr[i] = -1;
-            table = arr;
-        }
+        switch(subChoice) {
 
-        while(1) {
-            int subChoice;
-            printf("\nOperations Menu:\n");
-            printf("1. Add\n");
-            printf("2. Read\n");
-            printf("3. Search\n");
-            printf("4. Update\n");
-            printf("5. Delete\n");
-            printf("6. Exit to main menu\n");
-            printf("Enter choice: ");
-            if(scanf("%d", &subChoice) != 1 || subChoice < 1 || subChoice > 6) {
-                printf("Invalid input. Please enter 1-6.\n");
-                while(getchar() != '\n');
-                continue;
-            }
+            case 1: // Add
+                printf("Enter value to add: ");
+                if(scanf("%d", &value) != 1) {
+                    while(getchar()!='\n');
+                    continue;
+                }
+                hadd(table, size, value);
+                break;
 
-            if(subChoice == 6) break;
+            case 2: // Read
+                hread(table, size);
+                break;
 
-            switch(subChoice) {
-                case 1:
-                    hadd(mainChoice, table, size);
-                    break;
-                case 2:
-                    hread(size);
-                    break;
-                case 3:
-                    hsearch();
-                    break;
-                case 4:
-                    hupdate();
-                    break;
-                case 5:
-                    hdelete_entry();
-                    break;
-                default:
-                    printf("Invalid choice.\n");
-            }
+            case 3: // Search
+                printf("Enter value to search: ");
+                if(scanf("%d", &value) != 1) {
+                    while(getchar()!='\n');
+                    continue;
+                }
+                hsearch(table, size, value);
+                break;
+
+            case 4: // Update
+                printf("Enter existing value: ");
+                if(scanf("%d", &oldValue) != 1) {
+                    while(getchar()!='\n');
+                    continue;
+                }
+                printf("Enter new value: ");
+                if(scanf("%d", &newValue) != 1) {
+                    while(getchar()!='\n');
+                    continue;
+                }
+                hupdate(table, size, oldValue, newValue);
+                break;
+
+            case 5: // Delete
+                printf("Enter value to delete: ");
+                if(scanf("%d", &value) != 1) {
+                    while(getchar()!='\n');
+                    continue;
+                }
+                hdelete_entry(table, size, value);
+                break;
+
+            default:
+                printf("Invalid choice.\n");
         }
     }
 

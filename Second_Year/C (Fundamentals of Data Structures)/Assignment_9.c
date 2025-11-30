@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 #include "9.AVL.h"
 
 int main() {
@@ -34,7 +35,7 @@ int main() {
             {int push_val;
             printf("Enter value to Add: ");
             scanf("%d", &push_val);
-            tree_add_TBT(&t, push_val);
+            tree_add_avl(&t, push_val);
             printf("Value %d pushed to Tree.\n", push_val);
             break;}
         case 2:
@@ -75,55 +76,41 @@ int main() {
             }
             break;}
         case 3:
-            {tree_read_breadthfirst(t);
-            printf("Enter index to update: ");
-            int index, new_value;
-            int total_nodes = count_nodes(t);
-            if(scanf("%d", &index) != 1 || index < 0 || index >= total_nodes) {
-                printf("Invalid input. Please enter an integer index 0-%d.\n", total_nodes - 1);
+        {
+            printf("Enter value to update: ");
+            int oldValue, newValue;
+
+            if(scanf("%d", &oldValue) != 1) {
+                printf("Invalid old value.\n");
                 while(getchar() != '\n');
                 break;
             }
+
             printf("Enter new value: ");
-            if(scanf("%d", &new_value) != 1) {
-                printf("Invalid input. Please enter an integer value.\n");
+            if(scanf("%d", &newValue) != 1) {
+                printf("Invalid new value.\n");
                 while(getchar() != '\n');
                 break;
             }
-            update_value_BST(&t, index, new_value);
-            printf("Value at index %d updated to %d.\n", index, new_value);
-            break;}
+
+            tree_update_avl(t, oldValue, newValue);
+            break;
+        }
         case 4:
-            {tree_read_breadthfirst(t);
+        {
+            tree_read_breadthfirst(t);
             printf("Enter value to delete: ");
             int del_value;
-            if(scanf("%d", &del_value) != 1) {
+            if (scanf("%d", &del_value) != 1) {
                 printf("Invalid input. Please enter an integer value.\n");
-                while(getchar() != '\n');
+                while (getchar() != '\n');
                 break;
             }
 
-            printf("Enter number of occurrences to delete (0 to skip): ");
-            int n;
-            if(scanf("%d", &n) != 1 || n < 0) {
-                printf("Invalid input. Please enter a non-negative integer.\n");
-                while(getchar() != '\n');
-                break;
-            }
-
-            if(n == 0) {
-                printf("No nodes deleted.\n");
-            } else {
-                int deleted = 0;
-                for(int i = 0; i < n; i++) {
-                    Tree *old_t = t;
-                    t = delete_value_BST(t, del_value);
-                    if(t == old_t) break; // no more nodes found
-                    deleted++;
-                }
-                printf("%d occurrence(s) of %d deleted.\n", deleted, del_value);
-            }
-            break;}
+            t = tree_delete_avl(t, del_value);
+            printf("%d deleted.\n", del_value);
+            break;
+        }
         case 5:
             delete_tree(&t);
             printf("Tree deleted.\n");
@@ -132,6 +119,7 @@ int main() {
             delete_tree(&t);
             printf("Exiting program. Goodbye!\n");
             return 0;
+            break;
         default:
             printf("Invalid choice.\n");
         }

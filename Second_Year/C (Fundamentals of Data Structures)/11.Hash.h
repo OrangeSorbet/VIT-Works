@@ -51,7 +51,7 @@ void hdelete_entry(int table[], int size, int value) {
     int idx = hsearch(table, size, value);
     if(idx == -1) return;
 
-    table[idx] = -1; // Mark empty
+    table[idx] = -1;
     printf("Deleted at index %d\n", idx);
 }
 

@@ -53,6 +53,7 @@ int main() {
                 break;
 
             case 4: // Update
+                hread(table, size);
                 printf("Enter existing value: ");
                 if(scanf("%d", &oldValue) != 1) {
                     while(getchar()!='\n');

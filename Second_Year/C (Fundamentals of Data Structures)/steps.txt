@@ -1,0 +1,23 @@
+BT
+
+add - 
+create a new node and add all details
+if t is null, t = newn;
+do breadthfirst traversal till queue is empty. If u found check->left or check->right as null, add newn
+
+update - 
+do breadthfirst traversal till u find the value and replace
+
+delete - 
+first case if tree has only 1 node, delete tree
+then have todelete child and parent. traverse till q is empty
+if u found value then assign to todelete but continue traversing. for each left or right traversal, first enq check->left/right, parent = check and child = check->left/right
+if todelete or child not found, return
+if found, then replace todelete value with child value
+if parent's left is child, change parent->left to null
+same for right
+and free child
+
+BST
+add - 
+create a new node and add all details

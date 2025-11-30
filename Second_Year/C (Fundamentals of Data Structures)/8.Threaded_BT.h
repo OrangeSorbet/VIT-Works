@@ -46,6 +46,9 @@ void tree_add_TBT(ThTree **t, int value) {
         newn->right = parent->right;
         parent->right = newn;
         parent->rthread = 0;
+
+        if (newn->right == NULL)
+            newn->rthread = 0;
     }
 }
 

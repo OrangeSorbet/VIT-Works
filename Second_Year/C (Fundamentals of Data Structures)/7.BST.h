@@ -62,6 +62,65 @@ Tree* delete_value_BST(Tree *t, int value) {
     return t;
 }
 
+Tree *delete_value_BST(Tree *root, int value)
+{
+    Tree *cur = root;
+    Tree *parent = NULL;
+
+    // 1. Search for the node
+    while (cur != NULL && cur->value != value)
+    {
+        parent = cur;
+        if (value < cur->value)
+            cur = cur->left;
+        else
+            cur = cur->right;
+    }
+
+    if (cur == NULL) // value not found
+        return root;
+
+    // 2. Case: two children
+    if (cur->left != NULL && cur->right != NULL)
+    {
+        // find inorder successor
+        Tree *succ = cur->right;
+        Tree *succParent = cur;
+
+        while (succ->left != NULL)
+        {
+            succParent = succ;
+            succ = succ->left;
+        }
+
+        // copy successor value
+        cur->value = succ->value;
+
+        // now delete successor iteratively
+        cur = succ;
+        parent = succParent;
+    }
+
+    // 3. Now cur has at most 1 child
+    Tree *child = (cur->left != NULL) ? cur->left : cur->right;
+
+    // If deleting root
+    if (parent == NULL)
+    {
+        free(cur);
+        return child;
+    }
+
+    // link parent to child
+    if (parent->left == cur)
+        parent->left = child;
+    else
+        parent->right = child;
+
+    free(cur);
+    return root;
+}
+
 Tree* delete_all_BST(Tree *t, int value) {
     if (t == NULL) return NULL;
 

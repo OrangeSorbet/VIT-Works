@@ -77,6 +77,13 @@ int s_read(Stack *s) {
     }
 }
 
+void *s_top_p(Stack *s) {
+    if (!s_empty(s)) {
+        return s->top->ptr;
+    }
+    return NULL;
+}
+
 void q_init(Queue *q) {
     q->head = NULL;
     q->tail = NULL;

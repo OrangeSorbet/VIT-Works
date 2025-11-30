@@ -1,0 +1,123 @@
+# ✅ **DATA STRUCTURES — CRUD (Create, Read, Update, Delete)**
+
+### **Arrays**
+
+| Operation | Time (Best)  | Time (Avg) | Time (Worst) | Space |
+| --------- | ------------ | ---------- | ------------ | ----- |
+| Create    | —            | —          | O(n)         | O(n)  |
+| Read      | O(1)         | O(1)       | O(1)         | O(1)  |
+| Update    | O(1)         | O(1)       | O(1)         | O(1)  |
+| Delete    | O(n) (shift) | O(n)       | O(n)         | O(1)  |
+
+---
+
+### **Linked List**
+
+| Operation           | Best | Avg  | Worst | Space |
+| ------------------- | ---- | ---- | ----- | ----- |
+| Create              | —    | —    | O(n)  | O(n)  |
+| Read/Search         | O(1) | O(n) | O(n)  | O(1)  |
+| Update (known node) | O(1) | O(1) | O(1)  | O(1)  |
+| Delete (known node) | O(1) | O(1) | O(1)  | O(1)  |
+
+---
+
+### **Binary Tree (unbalanced)**
+
+| Operation       | Best | Avg       | Worst | Space |
+| --------------- | ---- | --------- | ----- | ----- |
+| Create / Insert | O(1) | O(h)=O(n) | O(n)  | O(n)  |
+| Read/Search     | O(1) | O(n)      | O(n)  | O(1)  |
+| Update          | O(1) | O(1)      | O(1)  | O(1)  |
+| Delete          | O(1) | O(n)      | O(n)  | O(1)  |
+
+---
+
+### **Binary Search Tree (BST)**
+
+(same heights as binary tree)
+
+| Operation | Best | Avg      | Worst | Space |
+| --------- | ---- | -------- | ----- | ----- |
+| Insert    | O(1) | O(log n) | O(n)  | O(n)  |
+| Search    | O(1) | O(log n) | O(n)  | O(1)  |
+| Delete    | O(1) | O(log n) | O(n)  | O(1)  |
+
+---
+
+### **Threaded Binary Tree (TBT)**
+
+| Operation | Best | Avg      | Worst | Space |
+| --------- | ---- | -------- | ----- | ----- |
+| Create    | O(1) | O(n)     | O(n)  | O(n)  |
+| Search    | O(1) | O(log n) | O(n)  | O(1)  |
+| Insert    | O(1) | O(log n) | O(n)  | O(1)  |
+| Delete    | O(1) | O(log n) | O(n)  | O(1)  |
+
+---
+
+### **AVL Tree**
+
+(ALWAYS balanced → height = O(log n))
+
+| Operation | Best     | Avg      | Worst    | Space |
+| --------- | -------- | -------- | -------- | ----- |
+| Insert    | O(log n) | O(log n) | O(log n) | O(n)  |
+| Search    | O(log n) | O(log n) | O(log n) | O(1)  |
+| Delete    | O(log n) | O(log n) | O(log n) | O(1)  |
+
+---
+
+### **Graph**
+
+#### **Adjacency Matrix**
+
+| Operation   | Time  | Space |
+| ----------- | ----- | ----- |
+| Create      | O(V²) | O(V²) |
+| Add Edge    | O(1)  | O(1)  |
+| Delete Edge | O(1)  | O(1)  |
+| Search Edge | O(1)  | O(1)  |
+
+#### **Adjacency List**
+
+| Operation   | Time          | Space    |
+| ----------- | ------------- | -------- |
+| Create      | O(V + E)      | O(V + E) |
+| Add Edge    | O(1)          | O(1)     |
+| Delete Edge | O(E) in worst | O(1)     |
+| Search Edge | O(deg(v))     | O(1)     |
+
+---
+
+### **Hash Table**
+
+| Operation | Best | Avg  | Worst | Space |
+| --------- | ---- | ---- | ----- | ----- |
+| Insert    | O(1) | O(1) | O(n)  | O(n)  |
+| Search    | O(1) | O(1) | O(n)  | O(1)  |
+| Delete    | O(1) | O(1) | O(n)  | O(1)  |
+
+---
+
+# 🟦 **SORTING ALGORITHMS**
+
+| Algorithm          | Best       | Avg        | Worst      | Space                      |
+| ------------------ | ---------- | ---------- | ---------- | -------------------------- |
+| **Quick Sort**     | O(n log n) | O(n log n) | O(n²)      | O(log n) (avg), O(n) worst |
+| **Merge Sort**     | O(n log n) | O(n log n) | O(n log n) | O(n)                       |
+| **Bubble Sort**    | O(n)       | O(n²)      | O(n²)      | O(1)                       |
+| **Insertion Sort** | O(n)       | O(n²)      | O(n²)      | O(1)                       |
+| **Selection Sort** | O(n²)      | O(n²)      | O(n²)      | O(1)                       |
+
+---
+
+# 🟩 **SEARCHING ALGORITHMS**
+
+| Algorithm            | Best | Avg      | Worst    | Space                               |
+| -------------------- | ---- | -------- | -------- | ----------------------------------- |
+| **Linear Search**    | O(1) | O(n)     | O(n)     | O(1)                                |
+| **Binary Search**    | O(1) | O(log n) | O(log n) | O(1) iterative / O(log n) recursive |
+| **Fibonacci Search** | O(1) | O(log n) | O(log n) | O(1)                                |
+
+---

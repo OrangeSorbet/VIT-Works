@@ -31,13 +31,15 @@ int *selection_sort(int arr[], int n) {
     return arr;
 }
 
-int *insertion_sort(int arr[], int n) {
-    for(int i=1; i<n; i++) {
+int* insertion_sort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
         int key = arr[i];
-        for(int j = i-1; j>=0 && arr[j]>key; j--) {
-            arr[j+1] = arr[j];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
         }
-        arr[j+1] = key;
+        arr[j + 1] = key;
     }
     return arr;
 }

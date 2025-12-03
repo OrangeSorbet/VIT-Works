@@ -3,13 +3,15 @@
 
 int main() {
     ThTree *t;
-
+    Stack s;
+    Queue q;
+    
     s_init(&s);
     q_init(&q);
-    tree_init(&t);
+    TBT_init(&t);
 
     while(1) {
-        printf("Threaded Binary Tree maker - \n");
+        printf("\nThreaded Binary Search Tree maker - \n");
         printf("-----------------------------\n");
         printf("1. Add to Tree\n");
         printf("2. Traverse Tree\n");
@@ -22,20 +24,23 @@ int main() {
         int choice;
 
         printf("Enter your choice: ");
-        scanf("%d", &choice);
-        
-        while (choice < 1 || choice > 6) {
-            printf("Invalid choice. Please enter a number between 1 and 6: ");
-            scanf("%d", &choice);
+        if(scanf("%d", &choice) != 1 || choice < 1 || choice > 6) {
+            printf("Invalid input. Please enter an integer between 1 and 6.\n");
+            while(getchar() != '\n');
+            continue;
         }
 
         switch(choice) {
         case 1:
             {int push_val;
             printf("Enter value to Add: ");
-            scanf("%d", &push_val);
+            if(scanf("%d", &push_val) != 1) {
+                printf("Invalid input. Please enter an integer value.\n");
+                while(getchar() != '\n');
+                break;
+            }
+            
             tree_add_TBT(&t, push_val);
-            printf("Value %d pushed to Tree.\n", push_val);
             break;}
         case 2:
             {printf("-----------------------------\n");
@@ -43,58 +48,53 @@ int main() {
             printf("2. Inorder\n");
             printf("3. Postorder\n");
             printf("4. Breadth First\n");
-            printf("5. Depth First\n");
             printf("-----------------------------\n");
             int traversalChoice;
             
             printf("Enter traversal choice: ");
             scanf("%d", &traversalChoice);
-            while (traversalChoice < 1 || traversalChoice > 5) {
-                printf("Invalid choice. Please enter a number between 1 and 5: ");
+            while (traversalChoice < 1 || traversalChoice > 4) {
+                printf("Invalid choice. Please enter a number between 1 and 4: ");
                 scanf("%d", &traversalChoice);
             }
 
             switch (traversalChoice) {
                 case 1:
-                    tree_read_preorder(t);
+                    preorder_TBT(t);
                     break;
                 case 2:
-                    tree_read_inorder(t);
+                    inorder_TBT(t);
                     break;
                 case 3:
-                    tree_read_postorder(t);
+                    postorder_TBT(t);
                     break;
                 case 4:
-                    tree_read_breadthfirst(t);
-                    break;
-                case 5:
-                    tree_read_depthfirst(t);
+                    breadthfirst_TBT(t);
                     break;
                 default:
                     printf("Invalid traversal choice.\n");
             }
             break;}
         case 3:
-            {tree_read_breadthfirst(t);
-            printf("Enter value to update: ");
-            int update, new_value;
-            if(scanf("%d", &update) != 1 || update < 0) {
-                printf("Invalid input. Please enter an integer: ");
+            {breadthfirst_TBT(t);
+            printf("\nEnter value to update: ");
+            int old_value, new_value;
+            if(scanf("%d", &old_value) != 1) {
+                printf("Invalid input. Please enter an integer.\n");
                 while(getchar() != '\n');
                 break;
             }
             printf("Enter new value: ");
             if(scanf("%d", &new_value) != 1) {
-                printf("Invalid input. Please enter an integer: ");
+                printf("Invalid input. Please enter an integer value.\n");
                 while(getchar() != '\n');
                 break;
             }
-            update_TBT(&t, update, new_value);
-            printf("Value %d updated to %d.\n", update, new_value);
+            update_value_TBT(&t, old_value, new_value);
             break;}
         case 4:
-            {tree_read_breadthfirst(t);
-            printf("Enter value to delete: ");
+            {breadthfirst_TBT(t);
+            printf("\nEnter value to delete: ");
             int del_value;
             if(scanf("%d", &del_value) != 1) {
                 printf("Invalid input. Please enter an integer value.\n");
@@ -102,14 +102,13 @@ int main() {
                 break;
             }
             delete_value_TBT(&t, del_value);
-            printf("%d deleted.\n", del_value);
             break;}
         case 5:
-            delete_tree(&t);
+            delete_TBT(&t);
             printf("Tree deleted.\n");
             break;
         case 6:
-            delete_tree(&t);
+            delete_TBT(&t);
             printf("Exiting program. Goodbye!\n");
             return 0;
         default:

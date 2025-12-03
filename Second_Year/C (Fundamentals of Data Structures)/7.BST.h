@@ -38,36 +38,11 @@ int tree_add_BST(Tree **t, int value) {
     return 1;
 }
 
-Tree* delete_value_BST(Tree *t, int value) {
-    if (t == NULL) return NULL;
-
-    if (value < t->value) t->left = delete_value_BST(t->left, value);
-    else if (value > t->value) t->right = delete_value_BST(t->right, value);
-    else {
-        if (!t->left) {
-            Tree *tmp = t->right;
-            free(t);
-            return tmp;
-        } else if (!t->right) {
-            Tree *tmp = t->left;
-            free(t);
-            return tmp;
-        } else {
-            Tree *succ = t->right;
-            while (succ->left) succ = succ->left;
-            t->value = succ->value;
-            t->right = delete_value_BST(t->right, succ->value);
-        }
-    }
-    return t;
-}
-
 Tree *delete_value_BST(Tree *root, int value)
 {
     Tree *cur = root;
     Tree *parent = NULL;
 
-    // 1. Search for the node
     while (cur != NULL && cur->value != value)
     {
         parent = cur;
@@ -77,13 +52,11 @@ Tree *delete_value_BST(Tree *root, int value)
             cur = cur->right;
     }
 
-    if (cur == NULL) // value not found
+    if (cur == NULL)
         return root;
 
-    // 2. Case: two children
     if (cur->left != NULL && cur->right != NULL)
     {
-        // find inorder successor
         Tree *succ = cur->right;
         Tree *succParent = cur;
 
@@ -93,25 +66,19 @@ Tree *delete_value_BST(Tree *root, int value)
             succ = succ->left;
         }
 
-        // copy successor value
         cur->value = succ->value;
 
-        // now delete successor iteratively
         cur = succ;
         parent = succParent;
     }
 
-    // 3. Now cur has at most 1 child
     Tree *child = (cur->left != NULL) ? cur->left : cur->right;
 
-    // If deleting root
     if (parent == NULL)
     {
         free(cur);
         return child;
     }
-
-    // link parent to child
     if (parent->left == cur)
         parent->left = child;
     else
@@ -119,38 +86,6 @@ Tree *delete_value_BST(Tree *root, int value)
 
     free(cur);
     return root;
-}
-
-Tree* delete_all_BST(Tree *t, int value) {
-    if (t == NULL) return NULL;
-
-    t->left = delete_all_BST(t->left, value);
-    t->right = delete_all_BST(t->right, value);
-
-    if (t->value == value) {
-        if (!t->left) {
-            Tree *tmp = t->right;
-            free(t);
-            return tmp;
-        } else if (!t->right) {
-            Tree *tmp = t->left;
-            free(t);
-            return tmp;
-        } else {
-            Tree *succ = t->right;
-            Tree *succParent = t;
-            while (succ->left) {
-                succParent = succ;
-                succ = succ->left;
-            }
-            t->value = succ->value;
-
-            if (succParent->left == succ) succParent->left = delete_all_BST(succ, succ->value);
-            else succParent->right = delete_all_BST(succ, succ->value);
-        }
-    }
-
-    return t;
 }
 
 void update_value_BST(Tree **t, int index, int new_value) {

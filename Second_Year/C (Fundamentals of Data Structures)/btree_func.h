@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include "5.stack_queue_func.h"
 
-extern Stack s;
-extern Queue q;
+Stack s;
+Queue q;
 
 typedef struct Tree {
     int value;

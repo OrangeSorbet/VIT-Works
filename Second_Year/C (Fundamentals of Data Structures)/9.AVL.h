@@ -1,3 +1,5 @@
+#ifndef AVL_H
+#define AVL_H
 #include <stdio.h>
 #include <stdlib.h>
 #include "5.stack_queue_func.h"
@@ -49,7 +51,7 @@ Tree* leftRotate(Tree *y) {
 
 Tree* avlInsert(Tree *node, int value) {
     Stack s;
-    s_init_p(&s);
+    s_init(&s);
 
     Tree *curr = node;
     Tree *parent = NULL;
@@ -124,11 +126,84 @@ Tree* minNode(Tree *node) {
     return node;
 }
 
+void preorder_AVL(Tree *t) {
+    if(!t) return;
+
+    Stack s;
+    s_init(&s);
+    s_push_p(&s, t);
+
+    while(!s_empty(&s)) {
+        Tree *curr = s_pop_p(&s);
+        printf("%d ", curr->value);
+        if(curr->right) s_push_p(&s, curr->right);
+        if(curr->left) s_push_p(&s, curr->left);
+    }
+}
+
+void inorder_AVL(Tree *t) {
+    if(!t) return;
+
+    Stack s;
+    s_init(&s);
+    Tree *curr = t;
+
+    while(!s_empty(&s) || curr != NULL) {
+        while(curr != NULL) {
+            s_push_p(&s, curr);
+            curr = curr->left;
+        }
+        curr = s_pop_p(&s);
+        printf("%d ", curr->value);
+        curr = curr->right;
+    }
+}
+
+void postorder_AVL(Tree *t) {
+    if(!t) return;
+
+    Stack s1, s2;
+    s_init(&s1);
+    s_init(&s2);
+
+    s_push_p(&s1, t);
+
+    while(!s_empty(&s1)) {
+        Tree *curr = s_pop_p(&s1);
+        s_push_p(&s2, curr);
+
+        if(curr->left) s_push_p(&s1, curr->left);
+        if(curr->right) s_push_p(&s1, curr->right);
+    }
+
+    while(!s_empty(&s2)) {
+        Tree *curr = s_pop_p(&s2);
+        printf("%d ", curr->value);
+    }
+}
+
+void breadthfirst_AVL(Tree *t) {
+    if(!t) return;
+
+    Queue q;
+    q_init(&q);
+    q_enq_p(&q, t);
+
+    while(!q_empty(&q)) {
+        Tree *curr = q_deq_p(&q);
+        printf("%d ", curr->value);
+
+        if(curr->left) q_enq_p(&q, curr->left);
+        if(curr->right) q_enq_p(&q, curr->right);
+    }
+    printf("\n");
+}
+
 Tree* avlDelete(Tree *root, int value) {
     if (!root) return NULL;
 
     Stack s;
-    s_init_p(&s);
+    s_init(&s);
 
     Tree *curr = root;
     Tree *parent = NULL;
@@ -222,15 +297,12 @@ Tree* avlUpdate(Tree *root, int oldValue, int newValue) {
     return root;
 }
 
-void inorder(Tree *t) {
-    if(!t) {
-        printf("Tree does not exist\n");
-        return;
-    }
+void delete_tree(Tree **t) {
+    if (!t || !*t) return;
 
     Stack s;
     s_init(&s);
-    Tree *curr = t;
+    Tree *curr = *t;
 
     while(!s_empty(&s) || curr != NULL) {
         while(curr != NULL) {
@@ -238,7 +310,12 @@ void inorder(Tree *t) {
             curr = curr->left;
         }
         curr = s_pop_p(&s);
-        printf("%d ", curr->value);
-        curr = curr->right;
+        Tree *right = curr->right;
+        free(curr);
+        curr = right;
     }
+    *t = NULL;
+    s_clear(&s);
 }
+
+#endif

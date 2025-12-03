@@ -84,6 +84,13 @@ void *s_top_p(Stack *s) {
     return NULL;
 }
 
+void s_clear(Stack *s) {
+    while(s->top != NULL) {
+        s_pop(s);
+        s_pop_p(s);
+    }
+}
+
 void q_init(Queue *q) {
     q->head = NULL;
     q->tail = NULL;

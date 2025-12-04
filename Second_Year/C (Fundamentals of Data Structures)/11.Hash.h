@@ -25,13 +25,6 @@ int h_read(int table[], int size) {
 int h_search(int table[], int size, int value) {
     if (!table) return -1;
 
-    printf("Enter value to search: ");
-    if (scanf("%d", &value) != 1) {
-        printf("Invalid input!\n");
-        while(getchar()!='\n');
-        return 0;
-    }
-
     int index = value % size;
 
     for (int i = 0; i < size; i++) {
@@ -93,17 +86,34 @@ int h_add(int **table, int *size, int value) {
     return h_add(table, size, value);
 }
 
-int h_delete(int table[], int size, int value) {
-    if (!table) return -1;
+int h_delete(int **table, int *size, int value) {
+    if (!*table) return -1;
 
-    int index = value % size;
+    int index = value % *size;
 
-    for (int i = 0; i < size; i++) {
-        int probe = (index + i) % size;
+    for (int i = 0; i < *size; i++) {
+        int probe = (index + i) % *size;
 
-        if (table[probe] == value) {
-            table[probe] = -1;
+        if ((*table)[probe] == value) {
+            (*table)[probe] = -1;
             printf("%d deleted from index %d\n", value, probe);
+
+            int empty = 1;
+            for (int j = 0; j < *size; j++) {
+                if ((*table)[j] != -1) {
+                    empty = 0;
+                    break;
+                }
+            }
+
+            if (empty) {
+                free(*table);
+                *table = NULL;
+                *size = 0;
+                printf("Table deleted (all empty)\n");
+                return 2;
+            }
+
             return 1;
         }
     }
@@ -113,10 +123,17 @@ int h_delete(int table[], int size, int value) {
 int h_update(int **table, int *size, int oldValue, int newValue) {
     if (!*table) return -1;
 
-    int d = h_delete(*table, *size, oldValue);
+    int d = h_delete(table, size, oldValue);
     if (d != 1) return d;
 
     return h_add(table, size, newValue);
+}
+
+int h_empty(int **table, int *size) {
+    if (!*table) return 1;
+    for (int i = 0; i < *size; i++)
+        if (*table[i] != -1) return 0;
+    return 1;
 }
 
 #endif

@@ -56,6 +56,16 @@ int main() {
 
             case 3:
                 {
+                    if(h_empty(&table, &size)) {
+                        printf("Table is empty!\n");
+                        break;
+                    }
+                    printf("Enter value to search: ");
+                    if (scanf("%d", &value) != 1) {
+                        printf("Invalid input!\n");
+                        while(getchar()!='\n');
+                        break;
+                    }
                     int searsucc = h_search(table, size, value);
                     if (searsucc == -1) printf("Table is empty!\n");
                     else if (searsucc == 0) printf("%d Not found!\n", value);
@@ -97,7 +107,7 @@ int main() {
                     while(getchar()!='\n');
                     break;
                 }
-                int delsucc = h_delete(table, size, value);
+                int delsucc = h_delete(&table, &size, value);
                 if (delsucc == 1) printf("Deleted.\n");
                 else if (delsucc == 0) printf("Not found.\n");
                 break;

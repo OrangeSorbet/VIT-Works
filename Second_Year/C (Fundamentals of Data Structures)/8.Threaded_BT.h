@@ -1,12 +1,9 @@
-#ifndef BT_H
-#define BT_H
+#ifndef TBT_H
+#define TBT_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "5.stack_queue_func.h"
-
-Stack s;
-Queue q;
 
 typedef struct ThTree {
     int value;
@@ -16,10 +13,12 @@ typedef struct ThTree {
 } ThTree;
 
 void TBT_init(ThTree **t) {
-    *t = NULL;
+    if (t) *t = NULL;
 }
 
-void tree_add_TBT(ThTree **t, int value) {
+int TBT_insert(ThTree **t, int value) {
+    if (!t) return 0;
+
     ThTree *curr = *t;
     ThTree *parent = NULL;
 
@@ -27,13 +26,14 @@ void tree_add_TBT(ThTree **t, int value) {
         parent = curr;
         if (value < curr->value)
             curr = curr->left;
-        else if (curr->rthread == 0)
+        else if (!curr->rthread)
             curr = curr->right;
         else
             break;
     }
 
     ThTree *newn = (ThTree *)calloc(1, sizeof(ThTree));
+    if (!newn) return 0;
     newn->value = value;
     newn->rthread = 1;
 
@@ -41,7 +41,7 @@ void tree_add_TBT(ThTree **t, int value) {
         *t = newn;
         newn->left = NULL;
         newn->right = NULL;
-        return;
+        return 1;
     }
 
     if (value < parent->value) {
@@ -53,19 +53,19 @@ void tree_add_TBT(ThTree **t, int value) {
         newn->right = parent->right;
         parent->right = newn;
         parent->rthread = 0;
-
-        if (newn->right == NULL)
-            newn->rthread = 0;
+        if (!newn->right)
+            newn->rthread = 1;
     }
-    printf("Node added!\n");
+    return 1;
 }
 
-void preorder_TBT(ThTree *t) {
-    if (t == NULL) {
-        printf("Tree empty!\n");
-        return;
+int TBT_preorder(ThTree *t) {
+    if (!t) {
+        printf("Tree is empty.\n");
+        return 0;
     }
 
+    Stack s;
     s_init(&s);
     s_push_p(&s, t);
 
@@ -73,66 +73,67 @@ void preorder_TBT(ThTree *t) {
         ThTree *n = s_pop_p(&s);
         printf("%d ", n->value);
 
-        if (n->rthread == 0 && n->right)
-            s_push_p(&s, n->right);
-        if (n->left)
-            s_push_p(&s, n->left);
+        if (!n->rthread && n->right) s_push_p(&s, n->right);
+        if (n->left) s_push_p(&s, n->left);
     }
+    return 1;
 }
 
-void inorder_TBT(ThTree *t) {
-    if (t == NULL) {
-        printf("Tree empty!\n");
-        return;
+int TBT_inorder(ThTree *t) {
+    if (!t) {
+        printf("Tree is empty.\n");
+        return 0;
     }
-    ThTree *curr = t;
-    while (curr && curr->left) curr = curr->left;
 
-    while (curr != NULL) {
+    ThTree *curr = t;
+    while (curr->left) curr = curr->left;
+
+    while (curr) {
         printf("%d ", curr->value);
         if (curr->rthread)
             curr = curr->right;
         else {
             curr = curr->right;
-            while (curr && curr->left)
-                curr = curr->left;
+            while (curr && curr->left) curr = curr->left;
         }
     }
+    return 1;
 }
 
-void postorder_TBT(ThTree *t) {
-    if (t == NULL) {
-        printf("Tree empty!\n");
-        return;
+int TBT_postorder(ThTree *t) {
+    if (!t) {
+        printf("Tree is empty.\n");
+        return 0;
     }
 
-    Stack s2;
-    s_init(&s);
+    Stack s1, s2;
+    s_init(&s1);
     s_init(&s2);
-    s_push_p(&s, t);
 
-    while (!s_empty(&s)) {
-        ThTree *n = s_pop_p(&s);
+    s_push_p(&s1, t);
+
+    while (!s_empty(&s1)) {
+        ThTree *n = s_pop_p(&s1);
         s_push_p(&s2, n);
 
-        if (n->rthread == 0 && n->right)
-            s_push_p(&s, n->right);
-        if (n->left)
-            s_push_p(&s, n->left);
+        if (!n->rthread && n->right) s_push_p(&s1, n->right);
+        if (n->left) s_push_p(&s1, n->left);
     }
 
     while (!s_empty(&s2)) {
-        ThTree *printval = s_pop_p(&s2);
-        printf("%d ", printval->value);
+        ThTree *n = s_pop_p(&s2);
+        printf("%d ", n->value);
     }
+    return 1;
 }
 
-void breadthfirst_TBT(ThTree *t) {
-    if (t == NULL) {
-        printf("Tree empty!\n");
-        return;
+int TBT_breadthfirst(ThTree *t) {
+    if (!t) {
+        printf("Tree is empty.\n");
+        return 0;
     }
 
+    Queue q;
     q_init(&q);
     q_enq_p(&q, t);
 
@@ -140,118 +141,97 @@ void breadthfirst_TBT(ThTree *t) {
         ThTree *n = q_deq_p(&q);
         printf("%d ", n->value);
 
-        if (n->left)
-            q_enq_p(&q, n->left);
-        if (n->rthread == 0 && n->right)
-            q_enq_p(&q, n->right);
+        if (n->left) q_enq_p(&q, n->left);
+        if (!n->rthread && n->right) q_enq_p(&q, n->right);
     }
+    return 1;
 }
 
-void update_value_TBT(ThTree **t, int old_value, int new_value) {
-    if (*t == NULL) {
-        printf("Tree empty!\n");
-        return;
-    }
+int TBT_update(ThTree *t, int old_value, int new_value) {
+    if (!t) return 0;
 
+    Queue q;
+    q_init(&q);
+    q_enq_p(&q, t);
     int found = 0;
 
-    q_init(&q);
-    q_enq_p(&q, *t);
-
     while (!q_empty(&q)) {
-        ThTree *check = q_deq_p(&q);
+        ThTree *n = q_deq_p(&q);
 
-        if (check->value == old_value) {
-            check->value = new_value;
-            printf("Value %d updated to %d.\n", old_value, new_value);
+        if (n->value == old_value) {
+            n->value = new_value;
             found = 1;
             break;
         }
 
-        if (check->left)
-            q_enq_p(&q, check->left);
-        if (check->rthread == 0 && check->right)
-            q_enq_p(&q, check->right);
+        if (n->left) q_enq_p(&q, n->left);
+        if (!n->rthread && n->right) q_enq_p(&q, n->right);
     }
-
-    if (!found)
-        printf("Value not found!\n");
+    return found;
 }
 
-void delete_value_TBT(ThTree **t, int value) {
-    if (*t == NULL) {
-        printf("Tree is empty\n");
-        return;
-    }
+int TBT_delete(ThTree **t, int value) {
+    if (!t || !*t) return 0;
 
-    ThTree *to_delete = NULL;
-    ThTree *father = NULL;
-    ThTree *youngest = NULL;
-
+    Queue q;
     q_init(&q);
     q_enq_p(&q, *t);
 
+    ThTree *node_to_delete = NULL;
+    ThTree *last_node = NULL;
+    ThTree *parent_of_last = NULL;
+
     while (!q_empty(&q)) {
-        ThTree *check = q_deq_p(&q);
+        ThTree *n = q_deq_p(&q);
 
-        if (check->value == value && to_delete == NULL) {
-            to_delete = check;
-        }
+        if (n->value == value && !node_to_delete) node_to_delete = n;
 
-        if (check->left != NULL) {
-            q_enq_p(&q, check->left);
-            youngest = check->left;
-            father = check;
+        if (n->left) {
+            parent_of_last = n;
+            last_node = n->left;
+            q_enq_p(&q, n->left);
         }
-        if (check->right != NULL) {
-            q_enq_p(&q, check->right);
-            youngest = check->right;
-            father = check;
+        if (!n->rthread && n->right) {
+            parent_of_last = n;
+            last_node = n->right;
+            q_enq_p(&q, n->right);
         }
     }
-    q_clear(&q);
 
-    if (to_delete == NULL || youngest == NULL) {
-        printf("Value not found!\n");
-        return;
-    }
-
-    if (*t == to_delete && youngest == to_delete) {
+    if (!node_to_delete) return 0;
+    if (!last_node) {
         free(*t);
         *t = NULL;
-        printf("Root deleted!\n");
-        return;
+        return 1;
     }
 
-    to_delete->value = youngest->value;
+    node_to_delete->value = last_node->value;
 
-    if (father != NULL) {
-        if (father->left == youngest) father->left = NULL;
-        else if (father->right == youngest) father->right = NULL;
+    if (parent_of_last) {
+        if (parent_of_last->left == last_node) parent_of_last->left = NULL;
+        else parent_of_last->right = NULL;
     }
-
-    free(youngest);
-    printf("Deletion complete\n");
+    free(last_node);
+    return 1;
 }
 
-void delete_TBT(ThTree **t) {
-    if (*t == NULL) return;
+int TBT_delete_tree(ThTree **t) {
+    if (!t || !*t) return 0;
 
+    Queue q;
     q_init(&q);
     q_enq_p(&q, *t);
 
     while (!q_empty(&q)) {
         ThTree *n = q_deq_p(&q);
 
-        if (n->left)
-            q_enq_p(&q, n->left);
-        if (n->rthread == 0 && n->right)
-            q_enq_p(&q, n->right);
+        if (n->left) q_enq_p(&q, n->left);
+        if (!n->rthread && n->right) q_enq_p(&q, n->right);
 
         free(n);
     }
-
     *t = NULL;
+    return 1;
 }
 
 #endif

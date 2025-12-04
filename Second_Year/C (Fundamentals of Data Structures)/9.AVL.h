@@ -23,12 +23,22 @@ int getBalance(Tree *n) {
     return height(n->left) - height(n->right);
 }
 
+int check_duplicates(Tree *t, int value) {
+    Tree *curr = t;
+    while (curr) {
+        if (value < curr->value) curr = curr->left;
+        else if (value > curr->value) curr = curr->right;
+        else return 1;
+    }
+    return 0;
+}
+
 Tree* rightRotate(Tree *y) {
     Tree *x = y->left;
-    Tree *xr = x->right;
+    Tree *T2 = x->right;
 
     x->right = y;
-    y->left = xr;
+    y->left = T2;
 
     y->height = 1 + maxf(height(y->left), height(y->right));
     x->height = 1 + maxf(height(x->left), height(x->right));
@@ -38,10 +48,10 @@ Tree* rightRotate(Tree *y) {
 
 Tree* leftRotate(Tree *y) {
     Tree *x = y->right;
-    Tree *xl = x->left;
+    Tree *T2 = x->left;
 
     x->left = y;
-    y->right = xl;
+    y->right = T2;
 
     y->height = 1 + maxf(height(y->left), height(y->right));
     x->height = 1 + maxf(height(x->left), height(x->right));
@@ -49,11 +59,17 @@ Tree* leftRotate(Tree *y) {
     return x;
 }
 
-Tree* avlInsert(Tree *node, int value) {
+
+int avlInsert(Tree **t, int value) {
+    if (check_duplicates(*t, value)) {
+        printf("Duplicate values not allowed!\n");
+        return 0;
+    }
+
     Stack s;
     s_init(&s);
 
-    Tree *curr = node;
+    Tree *curr = *t;
     Tree *parent = NULL;
 
     while(curr != NULL) {
@@ -62,10 +78,8 @@ Tree* avlInsert(Tree *node, int value) {
 
         if(value < curr->value)
             curr = curr->left;
-        else if(value > curr->value)
-            curr = curr->right;
         else
-            return node;   // duplicate not allowed
+            curr = curr->right;
     }
 
     Tree *newn = malloc(sizeof(Tree));
@@ -73,61 +87,56 @@ Tree* avlInsert(Tree *node, int value) {
     newn->left = newn->right = NULL;
     newn->height = 1;
 
-    if (!node)
-        return newn;
+    if (!*t) {
+        *t = newn;
+        return 1;
+    }
 
     if(value < parent->value)
         parent->left = newn;
     else
         parent->right = newn;
 
-    // rebalance from bottom up
     while(!s_empty(&s)) {
         Tree *temp = s_pop_p(&s);
+        Tree *orig = temp;
 
         temp->height = 1 + maxf(height(temp->left), height(temp->right));
         int balance = getBalance(temp);
 
-        // LL
-        if(balance > 1 && value < temp->left->value) {
+        if(balance > 1 && value < temp->left->value)
             temp = rightRotate(temp);
-        }
-        // RR
-        else if(balance < -1 && value > temp->right->value) {
+
+        else if(balance < -1 && value > temp->right->value)
             temp = leftRotate(temp);
-        }
-        // LR
+
         else if(balance > 1 && value > temp->left->value) {
             temp->left = leftRotate(temp->left);
             temp = rightRotate(temp);
         }
-        // RL
+
         else if(balance < -1 && value < temp->right->value) {
             temp->right = rightRotate(temp->right);
             temp = leftRotate(temp);
         }
 
-        // update root or attach back to parent
-        if(s_empty(&s)) {
-            node = temp;
+        if (s_empty(&s)) {
+            *t = temp;
         } else {
             Tree *p = s_top_p(&s);
-            if(value < p->value) p->left = temp;
+            if (p == NULL) { *t = temp; }
+            else if (p->left == orig) p->left = temp;
             else p->right = temp;
         }
     }
-
-    return node;
+    return 1;
 }
 
-Tree* minNode(Tree *node) {
-    while(node->left)
-        node = node->left;
-    return node;
-}
-
-void preorder_AVL(Tree *t) {
-    if(!t) return;
+int preorder_AVL(Tree *t) {
+    if(!t) {
+        printf("Tree is empty.\n");
+        return 0;
+    }
 
     Stack s;
     s_init(&s);
@@ -139,10 +148,14 @@ void preorder_AVL(Tree *t) {
         if(curr->right) s_push_p(&s, curr->right);
         if(curr->left) s_push_p(&s, curr->left);
     }
+    return 1;
 }
 
-void inorder_AVL(Tree *t) {
-    if(!t) return;
+int inorder_AVL(Tree *t) {
+    if(!t) {
+        printf("Tree is empty.\n");
+        return 0;
+    }
 
     Stack s;
     s_init(&s);
@@ -157,10 +170,14 @@ void inorder_AVL(Tree *t) {
         printf("%d ", curr->value);
         curr = curr->right;
     }
+    return 1;
 }
 
-void postorder_AVL(Tree *t) {
-    if(!t) return;
+int postorder_AVL(Tree *t) {
+    if(!t) {
+        printf("Tree is empty.\n");
+        return 0;
+    }
 
     Stack s1, s2;
     s_init(&s1);
@@ -180,10 +197,14 @@ void postorder_AVL(Tree *t) {
         Tree *curr = s_pop_p(&s2);
         printf("%d ", curr->value);
     }
+    return 1;
 }
 
-void breadthfirst_AVL(Tree *t) {
-    if(!t) return;
+int breadthfirst_AVL(Tree *t) {
+    if(!t) {
+        printf("Tree is empty.\n");
+        return 0;
+    }
 
     Queue q;
     q_init(&q);
@@ -197,24 +218,27 @@ void breadthfirst_AVL(Tree *t) {
         if(curr->right) q_enq_p(&q, curr->right);
     }
     printf("\n");
+    return 1;
 }
 
-Tree* avlDelete(Tree *root, int value) {
-    if (!root) return NULL;
+int avlDelete(Tree **t, int value) {
+    if (!*t)  {
+        return 0;
+    }
 
     Stack s;
     s_init(&s);
 
-    Tree *curr = root;
+    Tree *curr = *t;
     Tree *parent = NULL;
     Tree *toDelete = NULL;
 
-    while(curr != NULL) {
+    while (curr != NULL) {
         s_push_p(&s, curr);
-        if(value < curr->value) {
+        if (value < curr->value) {
             parent = curr;
             curr = curr->left;
-        } else if(value > curr->value) {
+        } else if (value > curr->value) {
             parent = curr;
             curr = curr->right;
         } else {
@@ -223,82 +247,109 @@ Tree* avlDelete(Tree *root, int value) {
         }
     }
 
-    if (!toDelete) return root;
+    if (!toDelete) return 0;
 
     Tree *child = NULL;
+
     if (!toDelete->left || !toDelete->right) {
         child = toDelete->left ? toDelete->left : toDelete->right;
 
-        if (!parent) {
-            free(toDelete);
-            root = child;
-            toDelete = NULL;
+        s_pop_p(&s);
+        Tree *curParent = s_empty(&s) ? NULL : s_top_p(&s);
+
+        free(toDelete);
+
+        if (!curParent) {
+            *t = child;
         } else {
-            if(parent->left == toDelete) parent->left = child;
-            else parent->right = child;
-            free(toDelete);
-            toDelete = NULL;
+            if (curParent->left == toDelete) curParent->left = child;
+            else curParent->right = child;
         }
     }
+
     else {
         Tree *succ = toDelete->right;
         Tree *succParent = toDelete;
 
-        while(succ->left != NULL) {
-            s_push_p(&s, succ);
+        while (succ->left != NULL) {
             succParent = succ;
             succ = succ->left;
         }
 
         toDelete->value = succ->value;
 
-        if(succParent->left == succ) succParent->left = succ->right;
+        if (succParent->left == succ) succParent->left = succ->right;
         else succParent->right = succ->right;
+
+        if (!s_empty(&s)) s_pop_p(&s);
 
         free(succ);
     }
 
-    while(!s_empty(&s)) {
+    while (!s_empty(&s)) {
         Tree *temp = s_pop_p(&s);
+        Tree *orig = temp;
 
         temp->height = 1 + maxf(height(temp->left), height(temp->right));
         int balance = getBalance(temp);
 
         // LL
-        if(balance > 1 && getBalance(temp->left) >= 0)
+        if (balance > 1 && getBalance(temp->left) >= 0)
             temp = rightRotate(temp);
-        // RR
-        else if(balance < -1 && getBalance(temp->right) <= 0)
-            temp = leftRotate(temp);
+
         // LR
-        else if(balance > 1 && getBalance(temp->left) < 0) {
+        else if (balance > 1 && getBalance(temp->left) < 0) {
             temp->left = leftRotate(temp->left);
             temp = rightRotate(temp);
         }
+
+        // RR
+        else if (balance < -1 && getBalance(temp->right) <= 0)
+            temp = leftRotate(temp);
+
         // RL
-        else if(balance < -1 && getBalance(temp->right) > 0) {
+        else if (balance < -1 && getBalance(temp->right) > 0) {
             temp->right = rightRotate(temp->right);
             temp = leftRotate(temp);
         }
 
-        if(s_empty(&s)) root = temp;
-        else {
+        if (s_empty(&s)) {
+            *t = temp;
+        } else {
             Tree *p = s_top_p(&s);
-            if(temp->value < p->value) p->left = temp;
+            if (p == NULL) { *t = temp; }
+            else if (p->left == orig) p->left = temp;
             else p->right = temp;
         }
     }
-    return root;
+    return 1;
 }
 
-Tree* avlUpdate(Tree *root, int oldValue, int newValue) {
-    root = avlDelete(root, oldValue);
-    root = avlInsert(root, newValue);
-    return root;
+void avlUpdate(Tree **t, int oldValue, int newValue) {
+
+    if (oldValue == newValue) {
+        printf("Duplicate value %d. Update aborted.\n", newValue);
+        return;
+    }
+
+    if (check_duplicates(*t, newValue)) {
+        printf("Duplicate value %d. Update aborted.\n", newValue);
+        return;
+    }
+
+    if (!avlDelete(t, oldValue)) {
+        printf("Value %d not found. Update aborted.\n", oldValue);
+        return;
+    }
+
+    int updsucc = avlInsert(t, newValue);
+
+    if (updsucc)
+        printf("Value %d updated to %d.\n", oldValue, newValue);
 }
 
-void delete_tree(Tree **t) {
-    if (!t || !*t) return;
+int delete_tree(Tree **t) {
+    if (!t || !*t) return 0;
 
     Stack s;
     s_init(&s);
@@ -316,6 +367,7 @@ void delete_tree(Tree **t) {
     }
     *t = NULL;
     s_clear(&s);
+    return 1;
 }
 
 #endif

@@ -3,15 +3,10 @@
 
 int main() {
     ThTree *t;
-    Stack s;
-    Queue q;
-    
-    s_init(&s);
-    q_init(&q);
     TBT_init(&t);
 
     while(1) {
-        printf("\nThreaded Binary Search Tree maker - \n");
+        printf("\nThreaded Binary Tree maker - \n");
         printf("-----------------------------\n");
         printf("1. Add to Tree\n");
         printf("2. Traverse Tree\n");
@@ -39,8 +34,7 @@ int main() {
                 while(getchar() != '\n');
                 break;
             }
-            
-            tree_add_TBT(&t, push_val);
+            TBT_insert(&t, push_val);
             break;}
         case 2:
             {printf("-----------------------------\n");
@@ -60,23 +54,26 @@ int main() {
 
             switch (traversalChoice) {
                 case 1:
-                    preorder_TBT(t);
+                    TBT_preorder(t);
                     break;
                 case 2:
-                    inorder_TBT(t);
+                    TBT_inorder(t);
                     break;
                 case 3:
-                    postorder_TBT(t);
+                    TBT_postorder(t);
                     break;
                 case 4:
-                    breadthfirst_TBT(t);
+                    TBT_breadthfirst(t);
                     break;
                 default:
                     printf("Invalid traversal choice.\n");
             }
             break;}
         case 3:
-            {breadthfirst_TBT(t);
+            {
+            if(TBT_breadthfirst(t) == 0) {
+                break;
+            }
             printf("\nEnter value to update: ");
             int old_value, new_value;
             if(scanf("%d", &old_value) != 1) {
@@ -90,10 +87,13 @@ int main() {
                 while(getchar() != '\n');
                 break;
             }
-            update_value_TBT(&t, old_value, new_value);
+            TBT_update(t, old_value, new_value);
             break;}
         case 4:
-            {breadthfirst_TBT(t);
+            {
+            if(TBT_breadthfirst(t) == 0) {
+                break;
+            }
             printf("\nEnter value to delete: ");
             int del_value;
             if(scanf("%d", &del_value) != 1) {
@@ -101,14 +101,19 @@ int main() {
                 while(getchar() != '\n');
                 break;
             }
-            delete_value_TBT(&t, del_value);
+            TBT_delete(&t, del_value);
             break;}
         case 5:
-            delete_TBT(&t);
+            if(TBT_delete_tree(&t) == 0) {
+                printf("Tree is already empty.\n");
+                break;
+            }
             printf("Tree deleted.\n");
             break;
         case 6:
-            delete_TBT(&t);
+            if(TBT_delete_tree(&t) == 0) {
+                printf("Tree is already empty.\n");
+            }
             printf("Exiting program. Goodbye!\n");
             return 0;
         default:

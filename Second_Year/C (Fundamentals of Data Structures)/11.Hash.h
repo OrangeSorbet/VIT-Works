@@ -1,58 +1,122 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #ifndef HASH_H
 #define HASH_H
 
-void hadd(int table[], int size, int value) {
+#include <stdio.h>
+#include <stdlib.h>
+
+void h_init(int **table, int *size) {
+    *size = 4;
+    *table = (int *)malloc((*size) * sizeof(int));
+    for (int i = 0; i < *size; i++)
+        (*table)[i] = -1;
+}
+
+int h_read(int table[], int size) {
+    if (!table) {
+        return -1;
+    }
+    for (int i = 0; i < size; i++) {
+        if (table[i] == -1) printf("[ - ]");
+        else printf("[%d]", table[i]);
+    }
+    printf("\n");
+}
+
+int h_search(int table[], int size, int value) {
+    if (!table) return -1;
+
+    printf("Enter value to search: ");
+    if (scanf("%d", &value) != 1) {
+        printf("Invalid input!\n");
+        while(getchar()!='\n');
+        return 0;
+    }
+
     int index = value % size;
 
-    for(int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         int probe = (index + i) % size;
-        if(table[probe] == -1) {
-            table[probe] = value;
-            printf("Inserted at index %d\n", probe);
-            return;
+
+        if (table[probe] == value) {
+            printf("%d found at index %d!\n", value, probe);
+            return 1;
         }
     }
-    printf("Hash table full, cannot insert.\n");
+    return 0;
 }
 
-void hread(int table[], int size) {
-    for(int i = 0; i < size; i++)
-        printf("Index %d: %d\n", i, table[i]);
+void h_rehash(int **table, int *size) {
+    int old_size = *size;
+    int new_size = old_size * 2;
+
+    int *old_table = *table;
+    int *new_table = (int *)malloc(new_size * sizeof(int));
+
+    for (int i = 0; i < new_size; i++)
+        new_table[i] = -1;
+
+    for (int i = 0; i < old_size; i++) {
+        if (old_table[i] != -1) {
+            int value = old_table[i];
+            int index = value % new_size;
+
+            for (int j = 0; j < new_size; j++) {
+                int probe = (index + j) % new_size;
+                if (new_table[probe] == -1) {
+                    new_table[probe] = value;
+                    break;
+                }
+            }
+        }
+    }
+
+    free(old_table);
+    *table = new_table;
+    *size = new_size;
 }
 
-int hsearch(int table[], int size, int value) {
+int h_add(int **table, int *size, int value) {
+    int index = value % *size;
+
+    for (int i = 0; i < *size; i++) {
+        int probe = (index + i) % *size;
+
+        if ((*table)[probe] == -1) {
+            (*table)[probe] = value;
+            printf("%d added at index %d\n", value, probe);
+            return 1;
+        }
+    }
+
+    h_rehash(table, size);
+
+    return h_add(table, size, value);
+}
+
+int h_delete(int table[], int size, int value) {
+    if (!table) return -1;
+
     int index = value % size;
 
-    for(int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         int probe = (index + i) % size;
-        if(table[probe] == value) {
-            printf("Found at index %d\n", probe);
-            return probe;
+
+        if (table[probe] == value) {
+            table[probe] = -1;
+            printf("%d deleted from index %d\n", value, probe);
+            return 1;
         }
-        if(table[probe] == -1) break;  
     }
-
-    printf("Not found.\n");
-    return -1;
+    return 0;
 }
 
-void hupdate(int table[], int size, int oldValue, int newValue) {
-    int idx = hsearch(table, size, oldValue);
-    if(idx == -1) return;
+int h_update(int **table, int *size, int oldValue, int newValue) {
+    if (!*table) return -1;
 
-    table[idx] = newValue;
-    printf("Updated index %d -> %d\n", idx, newValue);
-}
+    int d = h_delete(*table, *size, oldValue);
+    if (d != 1) return d;
 
-void hdelete_entry(int table[], int size, int value) {
-    int idx = hsearch(table, size, value);
-    if(idx == -1) return;
-
-    table[idx] = -1;
-    printf("Deleted at index %d\n", idx);
+    return h_add(table, size, newValue);
 }
 
 #endif

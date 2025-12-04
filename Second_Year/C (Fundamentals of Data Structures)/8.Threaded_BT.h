@@ -148,7 +148,7 @@ int TBT_breadthfirst(ThTree *t) {
 }
 
 int TBT_update(ThTree *t, int old_value, int new_value) {
-    if (!t) return 0;
+    if (!t) return -1;
 
     Queue q;
     q_init(&q);
@@ -171,7 +171,7 @@ int TBT_update(ThTree *t, int old_value, int new_value) {
 }
 
 int TBT_delete(ThTree **t, int value) {
-    if (!t || !*t) return 0;
+    if (!t || !*t) return -1;
 
     Queue q;
     q_init(&q);

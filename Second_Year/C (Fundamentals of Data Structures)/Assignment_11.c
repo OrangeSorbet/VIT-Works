@@ -4,82 +4,110 @@
 
 int main() {
 
-    int size = 10;
-    int table[10];
-    for(int i = 0; i < size; i++) table[i] = -1;  // -1 means empty
+    int *table = NULL;
+    int size = 0;
 
-    while(1) {
+    while (1) {
+
         int subChoice;
-        printf("\nHash Map:\n");
+
+        printf("\n-----------------------------\n");
+        printf("           Hash Map          \n");
+        printf("-----------------------------\n");
         printf("1. Add\n");
         printf("2. Read\n");
         printf("3. Search\n");
         printf("4. Update\n");
         printf("5. Delete\n");
         printf("6. Exit to main menu\n");
+        printf("-----------------------------\n");
+
         printf("Enter choice: ");
-        if(scanf("%d", &subChoice) != 1 || subChoice < 1 || subChoice > 6) {
-            printf("Invalid input. Please enter 1-6.\n");
-            while(getchar() != '\n');
+
+        if (scanf("%d", &subChoice) != 1 || subChoice < 1 || subChoice > 6) {
+            printf("Invalid input. Please enter 1–6.\n");
+            while (getchar() != '\n');
             continue;
         }
 
-        if(subChoice == 6) break;
+        if (subChoice == 6)
+            break;
 
         int value, oldValue, newValue;
 
-        switch(subChoice) {
+        switch (subChoice) {
 
-            case 1: // Add
+            case 1:
                 printf("Enter value to add: ");
-                if(scanf("%d", &value) != 1) {
-                    while(getchar()!='\n');
-                    continue;
+                if (scanf("%d", &value) != 1) {
+                    printf("Invalid input!\n");
+                    while (getchar() != '\n');
+                    break;
                 }
-                hadd(table, size, value);
+                h_init(&table, &size);
+                h_add(&table, &size, value);
                 break;
 
-            case 2: // Read
-                hread(table, size);
-                break;
-
-            case 3: // Search
-                printf("Enter value to search: ");
-                if(scanf("%d", &value) != 1) {
-                    while(getchar()!='\n');
-                    continue;
+            case 2:
+                if(h_read(table, size) == -1) {
+                    printf("Table is empty!\n");
                 }
-                hsearch(table, size, value);
                 break;
 
-            case 4: // Update
-                hread(table, size);
+            case 3:
+                {
+                    int searsucc = h_search(table, size, value);
+                    if (searsucc == -1) printf("Table is empty!\n");
+                    else if (searsucc == 0) printf("%d Not found!\n", value);
+                    break;
+                }
+            case 4:
+                if(h_read(table, size) == -1) {
+                    printf("Table is empty!\n");
+                    break;
+                }
+
                 printf("Enter existing value: ");
-                if(scanf("%d", &oldValue) != 1) {
+                if (scanf("%d", &oldValue) != 1) {
+                    printf("Invalid input!\n");
                     while(getchar()!='\n');
-                    continue;
+                    break;
                 }
+
                 printf("Enter new value: ");
-                if(scanf("%d", &newValue) != 1) {
+                if (scanf("%d", &newValue) != 1) {
+                    printf("Invalid input!\n");
                     while(getchar()!='\n');
-                    continue;
+                    break;
                 }
-                hupdate(table, size, oldValue, newValue);
+                int updsucc = h_update(&table, &size, oldValue, newValue);
+                if (updsucc == 1) printf("Updated.\n");
+                else if (updsucc == 0) printf("Not found.\n");
                 break;
 
-            case 5: // Delete
+            case 5:
+                if(h_read(table, size) == -1) {
+                    printf("Table is empty!\n");
+                    break;
+                }
+
                 printf("Enter value to delete: ");
-                if(scanf("%d", &value) != 1) {
+                if (scanf("%d", &value) != 1) {
+                    printf("Invalid input!\n");
                     while(getchar()!='\n');
-                    continue;
+                    break;
                 }
-                hdelete_entry(table, size, value);
+                int delsucc = h_delete(table, size, value);
+                if (delsucc == 1) printf("Deleted.\n");
+                else if (delsucc == 0) printf("Not found.\n");
                 break;
-
-            default:
-                printf("Invalid choice.\n");
+            case 6:
+                printf("Exiting program.\n");
+                free(table);
+                return 0;
         }
     }
-
     printf("Exiting program.\n");
+    free(table);
+    return 0;
 }

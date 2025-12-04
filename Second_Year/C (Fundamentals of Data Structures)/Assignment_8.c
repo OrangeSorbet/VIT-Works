@@ -87,7 +87,19 @@ int main() {
                 while(getchar() != '\n');
                 break;
             }
-            TBT_update(t, old_value, new_value);
+            int updsucc = TBT_update(t, old_value, new_value);
+            if(updsucc == 0) {
+                printf("Value not found!\n");
+                break;
+            }
+            else if(updsucc == -1) {
+                printf("Tree is empty!\n");
+                break;
+            }
+            else {
+                printf("%d updated to %d!\n", old_value, new_value);
+                break;
+            }
             break;}
         case 4:
             {
@@ -101,7 +113,19 @@ int main() {
                 while(getchar() != '\n');
                 break;
             }
-            TBT_delete(&t, del_value);
+            int delsucc = TBT_delete(&t, del_value);
+            if(delsucc == -1) {
+                printf("Tree is empty!\n");
+                break;
+            }
+            else if (delsucc == 0) {
+                printf("Value not found!\n");
+                break;
+            }
+            else {
+                printf("%d deleted!\n", del_value);
+                break;
+            }
             break;}
         case 5:
             if(TBT_delete_tree(&t) == 0) {

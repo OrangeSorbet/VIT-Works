@@ -1,0 +1,17 @@
+1. Take input
+When? at start
+Where? store in ram
+What? 2 integers
+How? from keyboard input
+
+2. Add
+When? after input
+Where? -
+What? the inputted integers
+How? using '+' function
+
+3. Return value
+When? after calculating
+Where? screen
+What? the sum
+How? through device drivers on screen

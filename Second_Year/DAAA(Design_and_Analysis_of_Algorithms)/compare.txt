@@ -1,0 +1,17 @@
+1. Take input
+When? at start
+Where? store in variables
+What? 2 integers
+How? from user through keyboard
+
+2. Compare values
+When? after input
+Where? -
+What? the 2 inputted integers
+How? subtract first number with second number, if answer is positive - first number is greater, if answer is negative - second number is greater
+
+3. Return value
+When? after calculating
+Where? screen
+What? the bigger number
+How? through device drivers on screen

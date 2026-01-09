@@ -1,0 +1,17 @@
+1. Take input
+When? at start
+Where? store in ram
+What? size integer, numbers integer
+How? from keyboard input
+
+2. Linear search
+When? after input
+Where? -
+What? the inputted integers
+How? compare each value in the vector and store the min and max value present
+
+3. Return value
+When? after calculating
+Where? screen
+What? max and min number
+How? through device drivers on screen

@@ -1,0 +1,257 @@
+---
+title: "Vishwakarma Institute of Technology - Home Assignments"
+author: "Your Name"
+date: "09-Jan-2026"
+output: html_document
+---
+
+``{r setup, include=FALSE}``
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(stats)
+library(gridExtra)
+library(MASS)
+library(scales)
+library(stats4)
+library(rmarkdown)
+``
+
+## Section 1: Unit 1
+
+### Task 1: Collect real-world categorical and numerical dataset & visualize distributions
+``{r}
+# Load dataset (replace with your CSV)
+df <- read.csv("your_dataset.csv")
+head(df)
+
+# Identify numerical and categorical columns
+num_cols <- names(df)[sapply(df, is.numeric)]
+cat_cols <- names(df)[sapply(df, is.factor) | sapply(df, is.character)]
+
+print(paste("Numerical columns:", paste(num_cols, collapse=", ")))
+print(paste("Categorical columns:", paste(cat_cols, collapse=", ")))
+
+# Numerical distribution
+for(col in num_cols){
+  ggplot(df, aes_string(col)) + 
+    geom_histogram(bins=30, fill="skyblue", color="black") +
+    ggtitle(paste("Distribution of", col)) +
+    theme_minimal() -> p
+  print(p)
+}
+
+# Categorical distribution
+for(col in cat_cols){
+  ggplot(df, aes_string(col)) +
+    geom_bar(fill="orange") +
+    ggtitle(paste("Distribution of", col)) +
+    theme_minimal() -> p
+  print(p)
+}
+``
+
+### Task 2: Compare mean and median for skewed datasets
+``{r}
+for(col in num_cols){
+  mean_val <- mean(df[[col]], na.rm=TRUE)
+  median_val <- median(df[[col]], na.rm=TRUE)
+  cat(paste(col, ": Mean =", round(mean_val,2), ", Median =", round(median_val,2), "\n"))
+}
+# Comment: For skewed distributions, median is preferred as it is robust against outliers.
+``
+
+### Task 3: Mini-report identifying best sampling strategy for a campus survey
+- **Simple Random Sampling:** Equal chance for each student.  
+- **Stratified Sampling:** Proportional representation by department, year, or gender.  
+- **Cluster Sampling:** Surveying full classes or batches.  
+- **Recommended:** Stratified sampling ensures fair representation across groups.
+
+---
+
+## Unit 2
+
+### Task 1: Compute Binomial probabilities for product defect rate scenarios
+``{r}
+# Example: 10 products, 10% defect, probability of 2 defective
+n <- 10
+p <- 0.1
+k <- 2
+prob <- dbinom(k, size=n, prob=p)
+prob
+``
+
+### Task 2: Solve Z-score problems
+``{r}
+x <- 85
+mu <- 80
+sigma <- 5
+z <- (x - mu)/sigma
+z
+``
+
+### Task 3: Normal Approximation to Binomial
+``{r}
+mu_norm <- n * p
+sigma_norm <- sqrt(n * p * (1 - p))
+prob_norm <- dnorm(k, mean=mu_norm, sd=sigma_norm)
+prob_norm
+``
+
+---
+
+## Section 2: Unit 3
+
+### Task 1: Construct 95% CI for a survey proportion
+``{r}
+success <- 45
+n_total <- 100
+prop.test(success, n_total, conf.level=0.95)
+``
+
+### Task 2: Hypothesis testing for population mean
+``{r}
+sample <- c(10,12,9,11,13)
+t.test(sample, mu=10)
+``
+
+### Task 3: Conduct one-way ANOVA on three groups
+``{r}
+group <- factor(rep(1:3, each=3))
+value <- c(10,12,11,14,15,16,13,14,15)
+aov_res <- aov(value ~ group)
+summary(aov_res)
+``
+
+---
+
+## Unit 4
+
+### Task 1: Paired t-test on before & after training results
+``{r}
+before <- c(50,55,60)
+after <- c(52,57,63)
+t.test(before, after, paired=TRUE)
+``
+
+### Task 2: Independent two-sample t-test comparing machinery performance
+``{r}
+machine1 <- c(10,12,11)
+machine2 <- c(14,15,13)
+t.test(machine1, machine2, paired=FALSE)
+
+---
+``
+## Tutorial Tasks Using R
+
+### Task 1: Load dataset and classify columns
+```{r}
+# Already done in Section 1 Task 1
+```
+
+### Task 2: Compute descriptive statistics & plot boxplot
+
+for (col in num_cols) {
+cat(paste("Column:", col, "\n"))
+cat("Mean:", mean(df[[col]], na.rm = TRUE), "\n")
+cat("Median:", median(df[[col]], na.rm = TRUE), "\n")
+cat("Mode:", as.numeric(names(sort(table(df[[col]]), decreasing = TRUE)[1])), "\n")
+cat("Variance:", var(df[[col]], na.rm = TRUE), "\n")
+cat("Standard Deviation:", sd(df[[col]], na.rm = TRUE), "\n\n")
+
+p <- ggplot(df, aes_string(y = col)) +
+geom_boxplot(fill = "lightgreen") +
+ggtitle(paste("Boxplot of", col))
+print(p)
+}
+
+### Task 3: Random sampling & compare sample vs population mean
+
+set.seed(42)
+sample_df <- df %>% sample_n(10)
+colMeans(sample_df[num_cols], na.rm = TRUE)
+colMeans(df[num_cols], na.rm = TRUE)
+
+### Task 4: Manual Binomial probability function
+
+binomial_prob <- function(n, k, p) {
+choose(n, k) * (p^k) * ((1 - p)^(n - k))
+}
+binomial_prob(10, 2, 0.1)
+
+### Task 5: Plot Normal Distribution curve
+
+x_vals <- seq(mu - 4 * sigma, mu + 4 * sigma, length.out = 100)
+y_vals <- dnorm(x_vals, mean = mu, sd = sigma)
+plot(x_vals, y_vals, type = "l", col = "blue",
+main = "Normal Distribution Curve", ylab = "Density")
+
+### Task 6: Area under Standard Normal curve
+
+pnorm(z)
+
+### Task 7: Conditional probability using simulation
+
+set.seed(42)
+n_sim <- 10000
+rolls <- sample(1:6, n_sim, replace = TRUE)
+prob <- sum(rolls %% 2 == 0 & rolls > 3) / sum(rolls > 3)
+prob
+
+### Task 8: Sampling distribution of sample means (CLT)
+
+sample_means <- replicate(
+1000,
+mean(sample(df[[num_cols[1]]], 10, replace = TRUE))
+)
+hist(sample_means, breaks = 30, col = "skyblue",
+main = "Sampling Distribution of Sample Means")
+
+### Task 9: Confidence interval for population mean
+
+t.test(df[[num_cols[1]]], conf.level = 0.95)
+
+### Task 10: Hypothesis testing (z-test)
+
+pop_mean <- 50
+sample_data <- c(52, 49, 51, 48, 50)
+z_stat <- (mean(sample_data) - pop_mean) /
+(sd(sample_data) / sqrt(length(sample_data)))
+z_stat
+
+### Task 11: Independent and paired t-tests
+
+# Independent t-test
+
+x1 <- c(10, 12, 11)
+x2 <- c(14, 15, 13)
+t.test(x1, x2)
+
+# Paired t-test
+
+before <- c(50, 55, 60)
+after <- c(52, 57, 63)
+t.test(before, after, paired = TRUE)
+
+### Task 12: One-way ANOVA
+
+group1 <- c(10, 12, 11)
+group2 <- c(14, 15, 16)
+group3 <- c(13, 14, 15)
+
+values <- c(group1, group2, group3)
+groups <- factor(rep(1:3, each = 3))
+
+anova_res <- aov(values ~ groups)
+summary(anova_res)
+
+### Task 13: End-to-End Case
+
+* Load dataset → completed
+* Perform EDA → Section 1 Task 1
+* Select test → t-test / ANOVA / proportion test as applicable
+* Perform inferential analysis → above tasks
+* Report conclusion → summarize findings in Markdown
+
+```

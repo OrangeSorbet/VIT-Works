@@ -1,7 +1,5 @@
 ---
 title: "Vishwakarma Institute of Technology - Home Assignments"
-author: "Your Name"
-date: "09-Jan-2026"
 output: html_document
 ---
 

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Applied Electro Mechanics Syllabus Mind Map (Cytoscape.js)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Cytoscape.js CDN -->
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <script src="https://unpkg.com/dagre/dist/dagre.min.js"></script>
+  <script src="https://unpkg.com/cytoscape-dagre/cytoscape-dagre.js"></script>
+  <script src="https://unpkg.com/cytoscape.js-radial-tree/cytoscape-radial-tree.js"></script>
+
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { font-family: Arial, sans-serif; }
+    #cy { width: 100vw; height: 98vh; transition: margin-left .3s; background: #f8f9fa; }
+    /* Hamburger menu styles */
+    .hamburger {
+      font-size: 2em;
+      cursor: pointer;
+      position: fixed;
+      top: 10px;
+      left: 16px;
+      z-index: 3;
+      color: #222;
+      background: #fff;
+      border-radius: 6px;
+      padding: 2px 10px;
+      box-shadow: 0 2px 8px #0002;
+      transition: left 0.3s;
+    }
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 4;
+      top: 0;
+      left: 0;
+      background-color: #222;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      color: #fff;
+    }
+    .sidenav a, .sidenav .unit-title {
+      padding: 8px 32px 8px 24px;
+      text-decoration: none;
+      font-size: 1em;
+      color: #fff;
+      display: block;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .sidenav a:hover { background: #444; }
+    .sidenav .unit-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #191919;
+      cursor: default;
+    }
+    .sidenav .closebtn {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-size: 2em;
+      margin-left: 50px;
+      color: #fff;
+      cursor: pointer;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      position: relative;
+      font-size: 1.1em;
+      line-height: 1.4em;
+      color: #222;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2em;
+      font-weight: bold;
+      color: #1976d2;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <span class="hamburger" onclick="openNav()">&#9776;</span>
+  <div id="mySidenav" class="sidenav">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+    <div class="unit-title">Unit 1</div>
+      <a onclick="loadMindmap('terminology')">1. Terminology.pdf</a>
+      <a onclick="loadMindmap('kinematics')">8. Kinematics.pdf</a>
+      <a onclick="loadMindmap('transformation')">9. Transformation.pdf</a>
+      <a onclick="loadMindmap('electrical1')">Electrical Components 1.pptx</a>
+      <a onclick="loadMindmap('electrical2')">Electrical Components 2.pptx</a>
+      <a onclick="loadMindmap('electronics1')">Electronics Components 1.pptx</a>
+      <a onclick="loadMindmap('electronics2')">Electronics Components 2.pptx</a>
+      <a onclick="loadMindmap('importantpoints')">Important Points.docx</a>
+      <a onclick="loadMindmap('mechanical1')">Mechanical Components 1.pptx</a>
+      <a onclick="loadMindmap('mechanical2')">Mechanical Components 2.pptx</a>
+    <div class="unit-title">Unit 2</div>
+      <a onclick="loadMindmap('actuators')">Actuators (Pneumatic, Hydraulic, Electric).pdf</a>
+      <a onclick="loadMindmap('magnetism')">Basics of Magnetism.pdf</a>
+      <a onclick="loadMindmap('brushlessdc')">Brushless DC Motors.pdf</a>
+      <a onclick="loadMindmap('dcbrushed')">DC Brushed Motors.pdf</a>
+      <a onclick="loadMindmap('numericaldc')">Numericals on DC Brushed Motors.pdf</a>
+      <a onclick="loadMindmap('revisionem')">Revision of Electromagnetism.pdf</a>
+      <a onclick="loadMindmap('servo')">Servo Motors.pdf</a>
+      <a onclick="loadMindmap('stepper')">Stepper Motors.pdf</a>
+    <div class="unit-title">Unit 3</div>
+      <a onclick="loadMindmap('endeffectors')">End Effectors.pdf</a>
+      <a onclick="loadMindmap('grippers')">Grippers.pdf</a>
+      <a onclick="loadMindmap('grippersq')">Robot Grippers Questionnaire.pptx</a>
+      <a onclick="loadMindmap('aroragupta')">S.K. Arora A.K. Gupta - Industrial Automation and Robotics-Laxmi Publications (2023).pdf</a>
+    <div class="unit-title">Unit 4</div>
+      <a onclick="loadMindmap('diodes')">1. Diodes, Zener Diode.pptx</a>
+      <a onclick="loadMindmap('bjt')">2. BJT, FET.pptx</a>
+      <a onclick="loadMindmap('mosfet')">3. MOSFET and IGBT.pdf</a>
+      <a onclick="loadMindmap('opamps')">4. Op-Amps.pdf</a>
+      <a onclick="loadMindmap('digitalelec')">5b. Digital Electronics.pdf</a>
+      <a onclick="loadMindmap('flipflops')">6. Flip Flops, Micoprocessor, Embdedded Systems.pdf</a>
+    <div class="unit-title">Unit 5</div>
+      <a onclick="loadMindmap('microprocessors')">1. Microprocessors, Embedded Systems.pdf</a>
+      <a onclick="loadMindmap('atmega328p1')">10. ATMEGA328P Serial IO, RS-232, SPI, I2C.pdf</a>
+      <a onclick="loadMindmap('atmega328p1copy')">10.1 ATMEGA328P same thing copy Serial IO.pdf</a>
+      <a onclick="loadMindmap('atmega328p2')">2. ATMEGA328P Introduction.pdf</a>
+      <a onclick="loadMindmap('atmega328p3')">3. ATMEGA328P Introduction 2.pdf</a>
+      <a onclick="loadMindmap('atmega328p4')">4. ATMEGA328P Interrupts.pdf</a>
+      <a onclick="loadMindmap('atmega328p5')">5. ATMEGA328P Interrupt 2.pdf</a>
+      <a onclick="loadMindmap('atmega328p6')">6. ATMEGA328P Microcontroller Ports.pdf</a>
+      <a onclick="loadMindmap('atmega328p7')">7. ATMEGA328P Memory and Allocation.pdf</a>
+      <a onclick="loadMindmap('atmega328p8')">8. ATMEGA328P Registers.pdf</a>
+      <a onclick="loadMindmap('atmega328p9')">9. ATMEGA328P Peripherals, Timer,Counter, PWM.pdf</a>
+      <a onclick="loadMindmap('atmega328pfeatures')">ATMEGA328P Overall Features.pdf</a>
+      <a onclick="loadMindmap('atmega328pstatus')">ATMEGA328P Status Register, Memory Stuctures, AVR, IO Registers.pdf</a>
+    <div class="unit-title">Unit 6</div>
+      <a onclick="loadMindmap('sensors1')">1. Sensors.pdf</a>
+      <a onclick="loadMindmap('sensors2')">2. Sensors.pdf</a>
+    <div class="unit-title">Unit 7</div>
+      <a onclick="loadMindmap('bluetooth')">Bluetooth.pdf</a>
+      <a onclick="loadMindmap('wifi')">WiFi.pdf</a>
+  </div>
+  <div id="cy"></div>
+
+  <!-- Modal for node details -->
+  <div id="nodeModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modalText"></div>
+    </div>
+  </div>
+
+  <script>
+    // Hamburger menu logic
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "300px";
+      document.querySelector('.hamburger').style.left = "310px";
+      document.getElementById("cy").style.marginLeft = "300px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.querySelector('.hamburger').style.left = "16px";
+      document.getElementById("cy").style.marginLeft = "0";
+    }
+
+    // Color palette for generations
+    const levelColors = [
+      {bg: "#ffecb3", border: "#ffb300", font: "#222"},
+      {bg: "#bbdefb", border: "#2196f3", font: "#222"},
+      {bg: "#c8e6c9", border: "#4caf50", font: "#222"},
+      {bg: "#f8bbd0", border: "#e91e63", font: "#222"},
+      {bg: "#d1c4e9", border: "#673ab7", font: "#222"},
+      {bg: "#ffe082", border: "#ffa000", font: "#222"}
+    ];
+
+    // Mind map data for each file (only one real, rest are placeholders)
+        const mind_terminology = {
+      id: "root",
+      topic: "Electro-Mechanical Systems",
+      children: [
+        {
+          id: "1",
+          topic: "1969 YASKAWA engineer coined 'electromechanical'"
+        },
+        {
+          id: "2",
+          topic: "Definition",
+          children: [
+            { id: "2.1", topic: "Combination of mechanisms and electronics" },
+            { id: "2.2", topic: "Integration of mechanical engineering, electrical/electronics, intelligent computer control" },
+            { id: "2.3", topic: "Used in designing, manufacturing processes and production in industrial environment" }
+          ]
+        },
+        {
+          id: "3",
+          topic: "Various Engineering Disciplines",
+          children: [
+            {
+              id: "3.1",
+              topic: "Mechanical Systems",
+              children: [
+                { id: "3.1.1", topic: "Examples: hydraulic, pneumatic, rotational, translational, thermal, fluid etc" },
+                { id: "3.1.2", topic: "Interfaced with computers via sensors, actuators, electronic systems" },
+                { id: "3.1.3", topic: "Mechanical components: control valves, gears, cylinders, chains" }
+              ]
+            },
+            {
+              id: "3.2",
+              topic: "Electrical Systems",
+              children: [
+                { id: "3.2.1", topic: "Concerned with charge, current, voltage" },
+                { id: "3.2.2", topic: "Integral part of electromechanical systems" },
+                { id: "3.2.3", topic: "Components: generators, transformers, relays, circuit breakers, switches" }
+              ]
+            },
+            {
+              id: "3.3",
+              topic: "Electronic Systems",
+              children: [
+                { id: "3.3.1", topic: "Electronic devices design circuits in electromechanical systems" },
+                { id: "3.3.2", topic: "Analog: Circuits designed using passive (resistors, capacitors, inductors) and active (diodes, transistors, ICs) components" },
+                { id: "3.3.3", topic: "Digital: Combinational and sequential circuits (flip-flops, counters)" }
+              ]
+            },
+            {
+              id: "3.4",
+              topic: "Instrumentation and Control Systems",
+              children: [
+                { id: "3.4.1", topic: "Sensors and transducers" },
+                { id: "3.4.2", topic: "Signal conditioning elements" },
+                { id: "3.4.3", topic: "Output devices: analog meters, display devices, recorders, printers" },
+                { id: "3.4.4", topic: "Data acquisition system/loggers for collecting, processing, storing data" }
+              ]
+            },
+            { id: "3.5", topic: "Computer Systems" },
+            { id: "3.6", topic: "Communication Systems" }
+          ]
+        },
+        {
+          id: "4",
+          topic: "What is a System?",
+          children: [
+            { id: "4.1", topic: "Group of interacting/interrelated elements acting by rules" }
+          ]
+        },
+        {
+          id: "5",
+          topic: "Control Systems",
+          children: [
+            { id: "5.1", topic: "Mechanism/system providing desired response/output by controlling input and processing" },
+            {
+              id: "5.2",
+              topic: "Types",
+              children: [
+                {
+                  id: "5.2.1",
+                  topic: "Open Loop Control System",
+                  children: [
+                    { id: "5.2.1.1", topic: "Output signal is not fed back to input (nonfeedback system)" },
+                    { id: "5.2.1.2", topic: "Examples: traffic light system, automatic washing machine, immersion rod" }
+                  ]
+                },
+                {
+                  id: "5.2.2",
+                  topic: "Closed Loop Control System",
+                  children: [
+                    { id: "5.2.2.1", topic: "Output signal is fed back to input (feedback system)" },
+                    { id: "5.2.2.2", topic: "Control action is a function of desired output" },
+                    { id: "5.2.2.3", topic: "Examples: air conditioner system, rocket launching, radar tracking, human respiratory" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "6",
+          topic: "Applications of Electromechanical Systems",
+          children: [
+            { id: "6.1", topic: "Automatic washing machines, dish washers" },
+            { id: "6.2", topic: "CD players, VCRs, camcorders" },
+            { id: "6.3", topic: "Document scanners" },
+            { id: "6.4", topic: "IC manufacturing systems" },
+            { id: "6.5", topic: "Fax and photocopier machines" },
+            { id: "6.6", topic: "Laser printers" },
+            { id: "6.7", topic: "Flexible manufacturing systems" },
+            { id: "6.8", topic: "Air conditioners, elevator controls" },
+            { id: "6.9", topic: "Automobiles" },
+            { id: "6.10", topic: "Robotics" }
+          ]
+        },
+        {
+          id: "7",
+          topic: "Robotics",
+          children: [
+            {
+              id: "7.1",
+              topic: "An Interdisciplinary Approach",
+              children: [
+                { id: "7.1.1", topic: "Programming of Microprocessors, Microcontrollers and programming languages" },
+                { id: "7.1.2", topic: "Analog, Digital, Power Electronics, Data acquisition, transmission, display, communication systems" },
+                { id: "7.1.3", topic: "Force, Torque, Statics, Kinematics, Inverse Kinematics, Dynamics" },
+                { id: "7.1.4", topic: "Vision, Temperature, Ultrasonic, Tactile, Proximity sensors (Active, Passive)" },
+                { id: "7.1.5", topic: "Design, Measurement, control and automation of processes" },
+                { id: "7.1.6", topic: "Control system, transducers" },
+                { id: "7.1.7", topic: "Electrical: Actuators, AC and DC Circuits, Circuit connections, wiring, Different Motors" },
+                { id: "7.1.8", topic: "Mechanical: Hydraulic, Pneumatic actuators, Gears, Drives, shaft, axle, piston, bearings" }
+              ]
+            },
+            {
+              id: "7.2",
+              topic: "Define the Term: Robot",
+              children: [
+                { id: "7.2.1", topic: "Word ‘ROBOT’ coined by Czech novelist Karel Capek in 1920" },
+                { id: "7.2.2", topic: "‘Robot’ means worker or servant in Czech" },
+                { id: "7.2.3", topic: "Machine similar to a human being (Karel Capek)" },
+                { id: "7.2.4", topic: "Machines that can replace humans in physical work and decision making" },
+                { id: "7.2.5", topic: "Machine capable of moving independently and performing complex actions (Merriam-Webster)" },
+                { id: "7.2.6", topic: "Machine capable of carrying out a complex series of actions automatically (Oxford)" }
+              ]
+            },
+            {
+              id: "7.3",
+              topic: "Define the Term: Robotics",
+              children: [
+                { id: "7.3.1", topic: "Robotics is the art, knowledge base, and know-how of designing, applying, and using robots" },
+                { id: "7.3.2", topic: "Robotics is a science dealing with design, manufacturing, usage of robots" },
+                { id: "7.3.3", topic: "Robotics is the science of designing/building robots for real-life applications" },
+                { id: "7.3.4", topic: "Term 'Robotics' introduced by Isaac Asimov in 1942" },
+                { id: "7.3.5", topic: "Uses fundamentals of Physics, Mathematics, Mechanical, Electronics, Electrical, Computer Science" }
+              ]
+            },
+            {
+              id: "7.4",
+              topic: "Laws of Robotics (Asimov)",
+              children: [
+                { id: "7.4.0", topic: "Zeroth Law: A robot may not injure humanity or allow humanity to come to harm" },
+                { id: "7.4.1", topic: "First Law: A robot may not injure a human or allow a human to come to harm, unless this would violate a higher order law" },
+                { id: "7.4.2", topic: "Second Law: A robot must obey orders given by humans, except where such orders would conflict with a higher order law" },
+                { id: "7.4.3", topic: "Third Law: A robot must protect its own existence as long as such protection does not conflict with a higher order law" }
+              ]
+            },
+            {
+              id: "7.5",
+              topic: "Advantages of Robots",
+              children: [
+                { id: "7.5.1", topic: "Human safety" },
+                { id: "7.5.2", topic: "Speed" },
+                { id: "7.5.3", topic: "Consistency" },
+                { id: "7.5.4", topic: "Accuracy" },
+                { id: "7.5.5", topic: "Reliability" },
+                { id: "7.5.6", topic: "Productivity" },
+                { id: "7.5.7", topic: "Suitable for dangerous/dirty atmosphere" },
+                { id: "7.5.8", topic: "No fatigue" },
+                { id: "7.5.9", topic: "Don’t go on strike" }
+              ]
+            },
+            {
+              id: "7.6",
+              topic: "Disadvantages of Robots",
+              children: [
+                { id: "7.6.1", topic: "Creates unemployment" },
+                { id: "7.6.2", topic: "High expertise required" },
+                { id: "7.6.3", topic: "Huge initial cost" },
+                { id: "7.6.4", topic: "Restricted by programming" },
+                { id: "7.6.5", topic: "Long time for small setup changes" },
+                { id: "7.6.6", topic: "Electricity is a must" },
+                { id: "7.6.7", topic: "High maintenance cost" },
+                { id: "7.6.8", topic: "Can be fatal if accidents occur" },
+                { id: "7.6.9", topic: "Might take over the world in future" }
+              ]
+            },
+            {
+              id: "7.7",
+              topic: "Robot Terminology",
+              children: [
+                { id: "7.7.1", topic: "Analogy with human body" },
+                { id: "7.7.2", topic: "Kinematics: Degrees of Freedom, Robot coordinates, Roll-Pitch-Yaw, Workspace, linkages, reference frames" },
+                { id: "7.7.3", topic: "Forward and Inverse Kinematics, Transformation matrix" }
+              ]
+            },
+            {
+              id: "7.8",
+              topic: "Anatomy of a Robot",
+              children: [
+                { id: "7.8.1", topic: "Base: Mounted on floor or mobile platform" },
+                { id: "7.8.2", topic: "Joints, Arm: Rigid bodies (links) connected by articulations (joints)" },
+                { id: "7.8.3", topic: "Wrist: Makes the orientation" },
+                { id: "7.8.4", topic: "End Effector: Performs required task (slider and gripper at end)" }
+              ]
+            },
+            {
+              id: "7.9",
+              topic: "End Effectors",
+              children: [
+                { id: "7.9.1", topic: "Types: Mechanical, Vacuum, Magnetic, etc." },
+                { id: "7.9.2", topic: "Tools: Welding guns, spray paint guns, spindle for drilling, screwdrivers, heating torch, etc." },
+                { id: "7.9.3", topic: "End Effector is gripper or end-of-arm tooling attached to wrist to accomplish task" },
+                { id: "7.9.4", topic: "Device attached to robot’s wrist to perform specific task (like human hand)" }
+              ]
+            },
+            {
+              id: "7.10",
+              topic: "Actuators",
+              children: [
+                { id: "7.10.1", topic: "Artificial muscles of robot" },
+                { id: "7.10.2", topic: "Electric motors (most common)" },
+                { id: "7.10.3", topic: "Pneumatic cylinders (small robots, fast, low power)" },
+                { id: "7.10.4", topic: "Hydraulic cylinders (large robots, slow, high power)" }
+              ]
+            },
+            {
+              id: "7.11",
+              topic: "Sensors",
+              children: [
+                { id: "7.11.1", topic: "Proximity sensor: Nearness" },
+                { id: "7.11.2", topic: "Tactile sensor: Touch/pressure" },
+                { id: "7.11.3", topic: "Current sensor" },
+                { id: "7.11.4", topic: "Tilt sensor: Inclination" },
+                { id: "7.11.5", topic: "Gyroscope: Orientation/angular velocity" },
+                { id: "7.11.6", topic: "Encoders: Speed of motor" },
+                { id: "7.11.7", topic: "Hall effect sensor: Magnetic field" },
+                { id: "7.11.8", topic: "Temperature sensor" },
+                { id: "7.11.9", topic: "Acceleration sensor" }
+              ]
+            },
+            {
+              id: "7.12",
+              topic: "Programming Languages",
+              children: [
+                { id: "7.12.1", topic: "Embedded C" },
+                { id: "7.12.2", topic: "Python" },
+                { id: "7.12.3", topic: "Proprietary languages" },
+                { id: "7.12.4", topic: "MATLAB" },
+                { id: "7.12.5", topic: "RobotC (LEGO)" },
+                { id: "7.12.6", topic: "KRL (KUKA)" },
+                { id: "7.12.7", topic: "KAREL (Fanuc)" }
+              ]
+            },
+            {
+              id: "7.13",
+              topic: "Workspace, Kinematics, Dynamics",
+              children: [
+                { id: "7.13.1", topic: "Workspace: Set of locations reachable by robot" },
+                { id: "7.13.2", topic: "Forward Kinematics: Given joint parameters, determine end effector location" },
+                { id: "7.13.3", topic: "Inverse Kinematics: Given end effector position/orientation, determine joint parameters" },
+                { id: "7.13.4", topic: "Dynamics: Forces and torques needed for desired velocities/accelerations" },
+                { id: "7.13.5", topic: "Trajectory: Path through space at specified velocities" }
+              ]
+            },
+            {
+              id: "7.14",
+              topic: "Accuracy, Precision, Repeatability, Resolution",
+              children: [
+                { id: "7.14.1", topic: "Accuracy: Nearness to programmed point (single event)" },
+                { id: "7.14.2", topic: "Precision: Nearness to previously reached point (set of events)" },
+                { id: "7.14.3", topic: "Repeatability: Ability to perform same task again with same accuracy and precision" },
+                { id: "7.14.4", topic: "Resolution: Smallest movement/measurement/output robot can make" }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+
+    function placeholderMindmap(title) {
+      return {
+        id: "root",
+        topic: title,
+        children: [
+          { id: "1", topic: "(Content not yet added)" }
+        ]
+      };
+    }
+
+    const mindmaps = {
+      'terminology': mind_terminology,
+      'kinematics': placeholderMindmap("8. Kinematics"),
+      'transformation': placeholderMindmap("9. Transformation"),
+      'electrical1': placeholderMindmap("Electrical Components 1"),
+      'electrical2': placeholderMindmap("Electrical Components 2"),
+      'electronics1': placeholderMindmap("Electronics Components 1"),
+      'electronics2': placeholderMindmap("Electronics Components 2"),
+      'importantpoints': placeholderMindmap("Important Points"),
+      'mechanical1': placeholderMindmap("Mechanical Components 1"),
+      'mechanical2': placeholderMindmap("Mechanical Components 2"),
+      'actuators': placeholderMindmap("Actuators (Pneumatic, Hydraulic, Electric)"),
+      'magnetism': placeholderMindmap("Basics of Magnetism"),
+      'brushlessdc': placeholderMindmap("Brushless DC Motors"),
+      'dcbrushed': placeholderMindmap("DC Brushed Motors"),
+      'numericaldc': placeholderMindmap("Numericals on DC Brushed Motors"),
+      'revisionem': placeholderMindmap("Revision of Electromagnetism"),
+      'servo': placeholderMindmap("Servo Motors"),
+      'stepper': placeholderMindmap("Stepper Motors"),
+      'endeffectors': placeholderMindmap("End Effectors"),
+      'grippers': placeholderMindmap("Grippers"),
+      'grippersq': placeholderMindmap("Robot Grippers Questionnaire"),
+      'aroragupta': placeholderMindmap("S.K. Arora A.K. Gupta - Industrial Automation and Robotics-Laxmi Publications (2023)"),
+      'diodes': placeholderMindmap("1. Diodes, Zener Diode"),
+      'bjt': placeholderMindmap("2. BJT, FET"),
+      'mosfet': placeholderMindmap("3. MOSFET and IGBT"),
+      'opamps': placeholderMindmap("4. Op-Amps"),
+      'digitalelec': placeholderMindmap("5b. Digital Electronics"),
+      'flipflops': placeholderMindmap("6. Flip Flops, Micoprocessor, Embdedded Systems"),
+      'microprocessors': placeholderMindmap("1. Microprocessors, Embedded Systems"),
+      'atmega328p1': placeholderMindmap("10. ATMEGA328P Serial IO, RS-232, SPI, I2C"),
+      'atmega328p1copy': placeholderMindmap("10.1 ATMEGA328P same thing copy Serial IO"),
+      'atmega328p2': placeholderMindmap("2. ATMEGA328P Introduction"),
+      'atmega328p3': placeholderMindmap("3. ATMEGA328P Introduction 2"),
+      'atmega328p4': placeholderMindmap("4. ATMEGA328P Interrupts"),
+      'atmega328p5': placeholderMindmap("5. ATMEGA328P Interrupt 2"),
+      'atmega328p6': placeholderMindmap("6. ATMEGA328P Microcontroller Ports"),
+      'atmega328p7': placeholderMindmap("7. ATMEGA328P Memory and Allocation"),
+      'atmega328p8': placeholderMindmap("8. ATMEGA328P Registers"),
+      'atmega328p9': placeholderMindmap("9. ATMEGA328P Peripherals, Timer,Counter, PWM"),
+      'atmega328pfeatures': placeholderMindmap("ATMEGA328P Overall Features"),
+      'atmega328pstatus': placeholderMindmap("ATMEGA328P Status Register, Memory Stuctures, AVR, IO Registers"),
+      'sensors1': placeholderMindmap("1. Sensors"),
+      'sensors2': placeholderMindmap("2. Sensors"),
+      'bluetooth': placeholderMindmap("Bluetooth"),
+      'wifi': placeholderMindmap("WiFi")
+    };
+
+    // Convert mind map tree to Cytoscape.js elements
+    function mindToCyElements(mind, parent = null, level = 0, elements = []) {
+      const nodeId = mind.id || Math.random().toString(36).slice(2);
+      elements.push({
+        data: {
+          id: nodeId,
+          label: mind.topic,
+          level: level
+        }
+      });
+      if (parent) {
+        elements.push({
+          data: { source: parent, target: nodeId }
+        });
+      }
+      if (mind.children) {
+        mind.children.forEach(child => mindToCyElements(child, nodeId, level + 1, elements));
+      }
+      return elements;
+    }
+
+    let cy = null;
+
+    function renderMindmapCytoscape(mind) {
+      const elements = mindToCyElements(mind);
+      if (cy) cy.destroy();
+      cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'shape': 'roundrectangle',
+              'background-color': ele => levelColors[ele.data('level') % levelColors.length].bg,
+              'border-width': 1,
+              'border-color': ele => levelColors[ele.data('level') % levelColors.length].border,
+              'color': ele => levelColors[ele.data('level') % levelColors.length].font,
+              'label': 'data(label)',
+              'text-valign': 'center',
+              'text-halign': 'center',
+              'text-wrap': 'wrap',
+              'text-max-width': 50,
+              'font-size': 8,
+              'width': 'label',
+              'height': 'label',
+              'padding': '5px',
+              'min-width': 80,
+              'max-width': 320,
+              'z-index': 10,
+              'text-outline-width': 0
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': 2,
+              'line-color': '#999',
+              'target-arrow-shape': 'triangle',
+              'target-arrow-color': '#bbb',
+              'curve-style': 'bezier'
+            }
+          },
+          {
+            selector: 'node:selected',
+            style: {
+              'background-color': '#1976d2',
+              'color': '#fff',
+              'border-color': '#1565c0'
+            }
+          }
+        ],
+
+        layout: {
+          name: 'dagre',
+          rankDir: 'TB', // Top to Bottom (vertical tree)
+          nodeDimensionsIncludeLabels: true,
+          avoidOverlap: true,
+          spacingFactor: 1, // increase for more space
+          rankSep: 1, // vertical distance between generations
+          edgeSep: 1, // horizontal distance between siblings/cousins
+          nodeSep: 10 // minimum distance between nodes
+        }
+      });
+
+      // Node click: show popup with full text
+      cy.on('tap', 'node', function(evt) {
+        const node = evt.target;
+        showModal(node.data('label'));
+      });
+    }
+
+    // Modal popup functions
+    function showModal(text) {
+      document.getElementById('modalText').innerText = text;
+      document.getElementById('nodeModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('nodeModal').style.display = 'none';
+    }
+    // Close modal on outside click
+    window.onclick = function(event) {
+      let modal = document.getElementById('nodeModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    // Syllabus menu logic
+    function loadMindmap(key) {
+      const mind = mindmaps[key];
+      if (!mind) return;
+      renderMindmapCytoscape(mind);
+      closeNav();
+    }
+
+    // Load default mind map on page load
+    window.onload = function() {
+      loadMindmap('terminology');
+    };
+  </script>
+</body>
+</html>

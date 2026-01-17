@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --background-image: linear-gradient(120deg ,white, white);
+    --background-color: #0f84d2;
+    --hover: #0c5d94;
+}
+
+body {
+    margin: 0;
+    padding: 1em;
+    font-size: large;
+    background-image: var(--background-image);
+    font-family: quicksand;
+}
+/* navbar*/
+.navbar {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+}
+/*top navbar*/
+
+.topnav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    transform: translate(0, -0.5em);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+.company-logo {
+    width: 10%;
+    border-radius: 1em;
+    border: 0.5px solid #333;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5em;
+}
+
+.company-logo:hover {
+    transform: rotateZ(360deg) scale(1.2);
+}
+
+.search-bar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    transform: translate(-1em);
+    width: 60%;
+}
+
+.search-bar input[type="search"] {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-family: quicksand;
+}
+
+.upper-right {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.upper-right a {
+    text-decoration: none;
+}
+
+.icon {
+    margin-right: 8px;
+    width: 1.5em;
+    padding: 1em;
+}
+
+.heart-red {
+    margin-right: 8px;
+    width: 1.5em;
+    padding: 1em;
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.heart-red:hover {
+    transform: translate(0.5em, -0.5em) rotate(30deg);
+    opacity: 1;
+}
+/*top navbar*/
+/*bottom navbar*/
+.bottomnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: var(--background-image);
+}
+
+.nav a, .auth-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.4em;
+}
+
+.nav a:hover, .auth-links a:hover {
+    background-color: var(--background-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.auth-links {
+    margin-right: 2%;
+}
+/*bottom navbar*/
+
+    /*slideshow*/
+    /* Slideshow container */
+    .slideshow-container {
+    max-width: 900px;
+    position: relative;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+    }
+    .slideshow-container:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.459);
+    }
+    /* Next & previous buttons */
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    }
+
+    .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Caption text */
+    .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-family: quicksand;
+    }
+
+    .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    }
+
+    .dot {
+    cursor: pointer;
+    height: 5px;
+    width: 5px;
+    margin: 0 1em;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    }
+
+    .active, .dot:hover {
+    background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+    animation-name: fade;
+    animation-duration: 0.3s;
+    }
+
+    @keyframes fade {
+    from {opacity: .9} 
+    to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+    }
+
+    .scroll-left {
+    height: 50px;	
+    overflow: hidden;
+    position: relative;
+    background: #045db5;
+    color:bisque;
+    }
+    .scroll-left p {
+    position: absolute;
+    size: 20px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    animation: scroll-left 25s linear infinite;
+    transform:translateX(100%);
+    }
+
+    /* Move it (define the animation) */
+    @keyframes scroll-left {
+    0%   {
+    transform: translateX(100%); 		
+    }
+    100% {
+    transform: translateX(-100%); 
+    }
+    }
+    /*slideshow*/
+
+/*about us*/
+.core-pulse {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
+}
+.vibrant-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: var(--hover);
+}
+.main-text {
+    font-size: 1.5em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.highlight-peak {
+    color: var(--background-color);
+}
+.action-link {
+    display: inline-block;
+    background-color: var(--background-color);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.action-link:hover {
+    background-color: var(--hover);
+}
+/*about us*/
+
+@media (max-width: 768px) {
+    .search-bar {
+        display: none;
+    }
+  
+    .upper-right {
+        display: none;
+    }
+  
+    .hamburger {
+        display: block;
+    }
+  
+    .bottomnav {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: white;
+    }
+  
+    .bottomnav.active {
+        display: flex;
+    }
+  
+    .nav, .auth-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+  
+    .nav a, .auth-links a {
+        display: block;
+        padding: 0.8rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+  
+    /* Hamburger Animation */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+  
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}

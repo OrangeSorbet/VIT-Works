@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We have a collection of ">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="browse.css" type="text/css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="browse.css">
+    <script src="filter.js"></script>
+    <script src="fav.js"></script>
+    <link rel="icon" href="Products/images/logo2.png" type="icon">
+    <title>Synercom</title>
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar">
+        <div class="topnav">
+            <div class="logo">
+                <img class="company-logo" src="Products/images/logo2.png">
+                <span class="company-name">Synercom</span>
+            </div>
+            <div class="search-bar">
+                <input type="search" placeholder="Search Exciting Offers">
+            </div>
+            <div class="upper-right">
+                <a href="favorites.html"><img src="https://www.svgrepo.com/show/532473/heart.svg" class="icon"></a>
+            </div>
+            <div class="upper-right">
+                <a href="cart.html"><img src="https://www.svgrepo.com/show/533043/cart-shopping.svg" class="icon"></a>
+            </div>
+            <div class="upper-right">
+                <a href="account.html"><img src="https://www.svgrepo.com/show/512733/profile-round-1346.svg" class="icon"></a>
+            </div>
+        </div>
+        <hr width="103.5%" style="transform: translate(-2%, -5px); padding: 1px;">
+        <div class="bottomnav">
+            <div class="nav">
+                <a href="home.html">Home</a>
+                <a href="category.html">Categories</a>
+                <a href="#footer">Contact Us</a>
+                <a  href="browse.html">Browse</a>
+            </div>
+            <div class="auth-links">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Signup</a>
+            </div>
+        </div>
+    </nav>
+    <hr width="103.5%" style="transform: translate(-3%, -8px); padding: 1px;">
+    <!--navbar-->
+
+
+
+
+<!--Filter-->
+<span>
+    <div class="browse">
+        <div class="container">
+            <div class="layout">
+                <div class="filter-container">
+                    <h2>All Categories</h2>
+                    <!-- GPU -->
+                    <div class="category">
+                        <input type="checkbox" id="gpu-toggle" class="category-toggle">
+                        <label for="gpu-toggle" class="category-label">GPU</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox">Nvidia</label>
+                                <label><input type="checkbox">AMD</label>
+                                <label><input type="checkbox">Intel</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>Capacity</h4>
+                                <label><input type="checkbox">2GB</label>
+                                <label><input type="checkbox">2-4GB</label>
+                                <label><input type="checkbox">8-16GB</label>
+                                <label><input type="checkbox">16GB & Above</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CPU -->
+                    <div class="category">
+                        <input type="checkbox" id="cpu-toggle" class="category-toggle">
+                        <label for="cpu-toggle" class="category-label">CPU</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> Intel</label>
+                                <label><input type="checkbox"> AMD Ryzen</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PSU -->
+                    <div class="category">
+                        <input type="checkbox" id="psu-toggle" class="category-toggle">
+                        <label for="psu-toggle" class="category-label">PSU</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> Corsair</label>
+                                <label><input type="checkbox"> Ant Esports</label>
+                                <label><input type="checkbox"> Cooler Master</label>
+                                <label><input type="checkbox"> MSI</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>Power</h4>
+                                <label><input type="checkbox"> 450W</label>
+                                <label><input type="checkbox"> 550W</label>
+                                <label><input type="checkbox"> 650W</label>
+                                <label><input type="checkbox"> 750W</label>
+                                <label><input type="checkbox"> 850W</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RAM -->
+                    <div class="category">
+                        <input type="checkbox" id="ram-toggle" class="category-toggle">
+                        <label for="ram-toggle" class="category-label">RAM</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> Kingston</label>
+                                <label><input type="checkbox"> Corsair</label>
+                                <label><input type="checkbox"> Crucial</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>Capacity</h4>
+                                <label><input type="checkbox"> 4GB</label>
+                                <label><input type="checkbox"> 8GB</label>
+                                <label><input type="checkbox"> 16GB</label>
+                                <label><input type="checkbox"> 32GB</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>RAM Type</h4>
+                                <label><input type="checkbox"> DDR 4</label>
+                                <label><input type="checkbox"> DDR 5</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SSD -->
+                    <div class="category">
+                        <input type="checkbox" id="ssd-toggle" class="category-toggle">
+                        <label for="ssd-toggle" class="category-label">SSD</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> Samsung</label>
+                                <label><input type="checkbox"> Sandisk</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>Capacity</h4>
+                                <label><input type="checkbox"> Upto 1TB</label>
+                                <label><input type="checkbox"> 2TB</label>
+                                <label><input type="checkbox"> 4TB</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>SSD Type</h4>
+                                <label><input type="checkbox"> NVMe</label>
+                                <label><input type="checkbox"> SATA</label>
+                                <label><input type="checkbox"> Portable</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Motherboard -->
+                    <div class="category">
+                        <input type="checkbox" id="motherboard-toggle" class="category-toggle">
+                        <label for="motherboard-toggle" class="category-label">Mother Board</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> MSI</label>
+                                <label><input type="checkbox"> ASUS</label>
+                                <label><input type="checkbox"> Gigabyte</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>SPU Socket</h4>
+                                <label><input type="checkbox"> Intel</label>
+                                <label><input type="checkbox"> AMD</label>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- HDD -->
+                    <div class="category">
+                        <input type="checkbox" id="hdd-toggle" class="category-toggle">
+                        <label for="hdd-toggle" class="category-label">HDD</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> Seagate</label>
+                                <label><input type="checkbox"> Western Digital</label>
+                                <label><input type="checkbox"> Toshiba</label>
+                            </div>
+                            <div class="subcategory">
+                                <h4>Capacity</h4>
+                                <label><input type="checkbox"> 1TB-8TB </label>
+                                <label><input type="checkbox"> 8TB-16TB </label>
+                                <label><input type="checkbox"> 16TB & Above</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PC Casing -->
+                    <div class="category">
+                        <input type="checkbox" id="casing-toggle" class="category-toggle">
+                        <label for="casing-toggle" class="category-label">PC Casing</label>
+                        <div class="subcategories">
+                            <div class="subcategory">
+                                <h4>Company</h4>
+                                <label><input type="checkbox"> Corsair</label>
+                                <label><input type="checkbox"> Lian Li</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Filter-->
+
+
+    <!--Grid-->
+    <div class="grid-cont">
+
+        <!--ITEMS-->
+        <div class="item-cont"data-category="GPU AMD 2GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont" >
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71tsEx1EDVL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Sapphire FirePro PCI Express Graphics 100
+                        <br>
+                        <div class="smol">2GB GDDR5 Dual DP DVI I PCI Express Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 2GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81ILEKBRMvL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>VisionTek AMD Radeon Graphic Card
+                        <br>
+                        <div class="smol">2GB GDDR5 Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 2GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71xs2lxrJhL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>ASRock Phantom DirectX RX550 2G
+                        <br>
+                        <div class="smol">2GB GDDR5 DirectX RX550 Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 2-4GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61AzTXUQJhL._SL1200_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>ASRock Radeon 6500XT Phantom Gaming
+                        <br>
+                        <div class="smol">4GB GDDR6 Radeon 6500XT Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 2-4GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71hNn-JOIPL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>ASUS Graphics DisplayPort Bearings All Aluminum
+                        <br>
+                        <div class="smol">4GB GDDR6 DisplayPort Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 2-4GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/816YMEx2CFL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Sapphire Pulse Radeon TM Graphic RDNATM
+                        <br>
+                        <div class="smol">4GB GDDR6 Radeon Pulse Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 8-16GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81vsACodShL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>ASRock RX7600 SL 8GO Graphics
+                        <br>
+                        <div class="smol">8GB GDDR6 RX7600 Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU AMD 8-16GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71L0p7ALaQL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Sapphire Pulse Radeon Graphic RDNATM
+                        <br>
+                        <div class="smol">8GB GDDR6 Pulse Radeon Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="item-cont"data-category="GPU AMD 8-16GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61w9O1yPrdL._SL1200_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>ASUS Radeon TM GDDR6 Desktop Graphic
+                        <br>
+                        <div class="smol">8GB GDDR6 Desktop Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 2GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81LkkH2bYNL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Zebronics Multiconnectivity Efficiency Heatsink DDR3 SDRAM
+                        <br>
+                        <div class="smol">2GB DDR3 Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont" data-category="GPU Nvidia 2GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71BdMAtfcGL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>nVidia Gigabyte GeForce Graphics GV-N710D5-2GL
+                        <br>
+                        <div class="smol">2GB GDDR5 GeForce Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 2GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71Rm7cZFXgL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte GDDR5 PCI Express x8 Graphics Card
+                        <br>
+                        <div class="smol">2GB GDDR5 PCI Express Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="item-cont">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont"data-category="GPU Nvidia 2-4GB">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61ms1I2oisL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Colorful GeForce Graphics Single Warranty
+                        <br>
+                        <div class="smol">2GB GDDR5 GeForce Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 2-4GB">
+            <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71qxEY6PtiL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte GeForce WINDFORCE Graphics GV-N1656WF2OC-4GD
+                        <br>
+                        <div class="smol">4GB GDDR6 GeForce Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont">
+            <div class="image-cont"data-category="GPU Nvidia 2-4GB">
+                <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81fLtWboBxL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte GeForce WINDFORCE NVIDIA GDDR6
+                        <br>
+                        <div class="smol">8GB GDDR6 GeForce Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 8-16GB">
+            <div class="image-cont">
+                <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71g2Lc8urJL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte Graphics Windforce GV-N4060Eagle PCI-E x16
+                        <br>
+                        <div class="smol">8GB GDDR6 Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="item-cont"data-category="GPU Nvidia 8-16GB">
+            <div class="image-cont">
+                <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71OFKtclW4L._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte WINDFORCE PCI-E x16 Graphics GV-N3060WF2OC-12GD
+                        <br>
+                        <div class="smol">12GB GDDR6 GeForce Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 8-16GB">
+            <div class="image-cont">
+                <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71FPIhwplIL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>MSI RTX 4060 Ti VENTUS BLACK
+                        <br>
+                        <div class="smol">8GB GDDR6 RTX 4060 Ti Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 16GB & Above">
+            <div class="image-cont">
+                <a href="1Sapphire AMD FirePro V5900.html" style="text-decoration: none;">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71cJCufrfGL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>GeForce RTX 3090 Founders Graphics
+                        <br>
+                        <div class="smol">24GB GDDR6X GeForce RTX 3090 Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="GPU Nvidia 16GB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61M0RAKqKUL._SL1080_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>GeForce Tri-Frozr Lovelace Architecture Graphics
+                        <br>
+                        <div class="smol">16GB GDDR6X GeForce Tri-Frozr RTX Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="item-cont"data-category="GPU Nvidia 16GB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81LirjpWyTL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>ASUS Gaming GeForce Graphics Displayport
+                        <br>
+                        <div class="smol">GeForce RTX Gaming Graphics Card</div>
+                    </p>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51h+4XuLsSL._SL1280_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i3 Processor
+                        <br>
+                        <div class="smol">Intel i3 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51wQQ9WWa7L._SL1080_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i5 Processor
+                        <br>
+                        <div class="smol">Intel i5 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51dsTdtQDlL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i7 Processor
+                        <br>
+                        <div class="smol">Intel i7 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51kMh915XHL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i9 Processor
+                        <br>
+                        <div class="smol">Intel i9 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51vTDOi0KCL._SL1000_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i5 Ultra Processor
+                        <br>
+                        <div class="smol">Intel i5 Ultra CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51gf0NAUHkL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i7 Ultra Processor
+                        <br>
+                        <div class="smol">Intel i7 Ultra CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/419Ou+b1uTL._SY300_SX300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Intel i9 Ultra Processor
+                        <br>
+                        <div class="smol">Intel i9 Ultra CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="CPU AMD Ryzen">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61gtD6RXIbL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>AMD Ryzen 3 Processor
+                        <br>
+                        <div class="smol">AMD Ryzen 3 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU AMD Ryzen">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31EzTuimorL._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>AMD Ryzen 5 Processor
+                        <br>
+                        <div class="smol">AMD Ryzen 5 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU AMD Ryzen">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71aHvYUgX1L._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>AMD Ryzen 7 Processor
+                        <br>
+                        <div class="smol">AMD Ryzen 7 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="CPU AMD Ryzen">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/5116zdA9uyL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>AMD Ryzen 9 Processor
+                        <br>
+                        <div class="smol">AMD Ryzen 9 CPU</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="PSU Corsair 450W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/810FP1fdX5L._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 450W PSU
+                        <br>
+                        <div class="smol">450W Corsair Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Corsair 550W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31pyA7l8o7L._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 550W PSU
+                        <br>
+                        <div class="smol">550W Corsair Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Corsair 650W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/414TgqB9rDL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 650W PSU
+                        <br>
+                        <div class="smol">650W Corsair Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Corsair 750W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31LGy29QLDL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 750W PSU
+                        <br>
+                        <div class="smol">750W Corsair Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="PSU Corsair 850W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41pcKBun2QL._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 850W PSU
+                        <br>
+                        <div class="smol">850W Corsair Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Ant Esports 450W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81tVHkPgIJL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Ant Esports 450W PSU
+                        <br>
+                        <div class="smol">450W Ant Esports Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Ant Esports 550W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41xpmRYdvBL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Ant Esports 550W PSU
+                        <br>
+                        <div class="smol">550W Ant Esports Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Ant Esports 650W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41WvVxrA02L._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Ant Esports 650W PSU
+                        <br>
+                        <div class="smol">650W Ant Esports Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="PSU Ant Esports 750W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41tutfMjeiL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Ant Esports 750W PSU
+                        <br>
+                        <div class="smol">750W Ant Esports Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Ant Esports 850W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41jDpccQhlL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Ant Esports 850W PSU
+                        <br>
+                        <div class="smol">850W Ant Esports Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Cooler Master 450W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/810FP1fdX5L._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Cooler Master 450W PSU
+                        <br>
+                        <div class="smol">450W Cooler Master Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Cooler Master 550W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41blpJX2k5L._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Cooler Master 550W PSU
+                        <br>
+                        <div class="smol">550W Cooler Master Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="PSU Cooler Master 650W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/814QHkLBV1L._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Cooler Master 650W PSU
+                        <br>
+                        <div class="smol">650W Cooler Master Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Cooler Master 750W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41ZaSLHQwtL._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Cooler Master 750W PSU
+                        <br>
+                        <div class="smol">750W Cooler Master Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PSU Cooler Master 850W">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41BKfg6D4cL._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Cooler Master 850W PSU
+                        <br>
+                        <div class="smol">850W Cooler Master Power Supply Unit</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="RAM Crucial 4GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71tnsuszAqL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 4GB DDR4 RAM
+                        <br>
+                        <div class="smol">4GB DDR4 Crucial Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Crucial 8GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41+tJ2kly4L._SY300_SX300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 8GB DDR4 RAM
+                        <br>
+                        <div class="smol">8GB DDR4 Crucial Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Crucial 16GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41v+FUwO-8L._SX300_SY300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 16GB DDR4 RAM
+                        <br>
+                        <div class="smol">16GB DDR4 Crucial Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Crucial 32GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41+tJ2kly4L._SY300_SX300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 32GB DDR4 RAM
+                        <br>
+                        <div class="smol">32GB DDR4 Crucial Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="RAM Crucial 8GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/819OdHGCicL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 8GB DDR5 RAM
+                        <br>
+                        <div class="smol">8GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Crucial 16GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41s5rv2UXeL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 16GB DDR5 RAM
+                        <br>
+                        <div class="smol">16GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Crucial 32GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/819OdHGCicL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Crucial 32GB DDR5 RAM
+                        <br>
+                        <div class="smol">32GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="RAM Kingston 4GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41zwdweYjML._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Kingston 4GB DDR4 RAM
+                        <br>
+                        <div class="smol">4GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Kingston 8GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/21GydN2ZzHL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Kingston 8GB DDR4 RAM
+                        <br>
+                        <div class="smol">8GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Kingston 16GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31HLz8OwmZL._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Kingston 16GB DDR4 RAM
+                        <br>
+                        <div class="smol">16GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Kingston 32GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/41S+pmXAU-L._SY879_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p style="transform: translate(0, -9em);">Kingston 32GB DDR4 RAM
+                        <br>
+                        <div class="smol" style="transform: translate(0, -12em);">32GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Kingston 8GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61-80FSV-cL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Kingston 8GB DDR5 RAM
+                        <br>
+                        <div class="smol">8GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Kingston 16GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61-80FSV-cL._SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Kingston 16GB DDR5 RAM
+                        <br>
+                        <div class="smol">16GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Kingston 32GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31YDFPU+FyL._SX300_SY300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Kingston 32GB DDR5 RAM
+                        <br>
+                        <div class="smol">32GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 4GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51d6IthA7ML._SL1000_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 4GB DDR4 RAM
+                        <br>
+                        <div class="smol">4GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 8GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51gKjHeEmGL._SL1000_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 8GB DDR4 RAM
+                        <br>
+                        <div class="smol">8GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 16GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51Gs2sm696L._SL1000_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 16GB DDR4 RAM
+                        <br>
+                        <div class="smol">16GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 32GB DDR 4">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61mf24GAOuL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 32GB DDR4 RAM
+                        <br>
+                        <div class="smol">32GB DDR4 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 8GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31jLDO5HD2L._SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 8GB DDR5 RAM
+                        <br>
+                        <div class="smol">8GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 16GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/31DKsG9lBhL._SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 16GB DDR5 RAM
+                        <br>
+                        <div class="smol">16GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="RAM Corsair 32GB DDR 5">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61mf24GAOuL._SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 32GB DDR5 RAM
+                        <br>
+                        <div class="smol">32GB DDR5 Memory</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="SSD Samsung Upto 1TB SATA">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/711qZ63B-BL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Samsung 1TB SATA SSD
+                        <br>
+                        <div class="smol">1TB SATA Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Samsung 2TB SATA">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/711qZ63B-BL._AC_SL1056_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Samsung 2TB SATA SSD
+                        <br>
+                        <div class="smol">2TB SATA Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Samsung 4TB SATA">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/711qZ63B-BL._AC_SL1056_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Samsung 4TB SATA SSD
+                        <br>
+                        <div class="smol">4TB SATA Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Samsung Upto 1TB NVMe">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61ciknSL0lL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Samsung 1TB NVMe SSD
+                        <br>
+                        <div class="smol">1TB NVMe Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Samsung 2TB NVMe">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61nq7N0igEL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Samsung 2TB NVMe SSD
+                        <br>
+                        <div class="smol">2TB NVMe Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Samsung 4TB NVMe">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61OXVXIFeHL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Samsung 4TB NVMe SSD
+                        <br>
+                        <div class="smol">4TB NVMe Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="SSD Sandisk Upto 1TB SATA">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61P39LA75pL.__AC_SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 1TB SATA SSD
+                        <br>
+                        <div class="smol">1TB SATA Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk 2TB SATA">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/6157smUlsUL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 2TB SATA SSD
+                        <br>
+                        <div class="smol">2TB SATA Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk 4TB SATA">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51cozbm8EzL.__AC_SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 4TB SATA SSD
+                        <br>
+                        <div class="smol">4TB SATA Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk Upto 1TB Portable">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/615DH4PcbFL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 500GB Portable SSD
+                        <br>
+                        <div class="smol">500GB Portable Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk Upto 1TB Portable">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71z2lEHwfNL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 1TB Portable SSD
+                        <br>
+                        <div class="smol">1TB Portable Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk 2TB Portable">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71z2lEHwfNL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 2TB Portable SSD
+                        <br>
+                        <div class="smol">2TB Portable Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk 4TB Portable">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71z2lEHwfNL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 4TB Portable SSD
+                        <br>
+                        <div class="smol">4TB Portable Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk Upto 1TB NVMe">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51YDo05UMyL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 1TB NVMe SSD
+                        <br>
+                        <div class="smol">1TB NVMe Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="SSD Sandisk 2TB NVMe">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51lO3K4uFZL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>SanDisk 2TB NVMe SSD
+                        <br>
+                        <div class="smol">2TB NVMe Storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="Mother Board ASUS AMD">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81S9D7bqEzL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Asus DDR4 Motherboard
+                        <br>
+                        <div class="smol">Asus DDR4 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board ASUS AMD">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81ogi-krqkL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Asus DDR5 Motherboard
+                        <br>
+                        <div class="smol">Asus DDR5 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board MSI AMD">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/91nx+MhjjwL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Msi DDR4 Motherboard
+                        <br>
+                        <div class="smol">Msi DDR4 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board MSI AMD">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81k4xzo++EL._AC_SX300_SY300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Msi DDR5 Motherboard
+                        <br>
+                        <div class="smol">Msi DDR5 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board Gigabyte AMD">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81LeNxQOZ8L._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte DDR4 Motherboard
+                        <br>
+                        <div class="smol">Gigabyte DDR4 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board Gigabyte AMD">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81J-Y0EyvQL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte DDR5 Motherboard
+                        <br>
+                        <div class="smol">Gigabyte DDR5 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="Mother Board ASUS Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81MpNuUuPHL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Asus DDR4 Motherboard
+                        <br>
+                        <div class="smol">Asus DDR4 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board ASUS Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81rX0VhoStL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Asus DDR5 Motherboard
+                        <br>
+                        <div class="smol">Asus DDR5 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board MSI Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/91ZPVQjJ7kL.__AC_SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Msi DDR4 Motherboard
+                        <br>
+                        <div class="smol">Msi DDR4 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board MSI Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81m5+SCpsSL._AC_SY300_SX300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Msi DDR5 Motherboard
+                        <br>
+                        <div class="smol">Msi DDR5 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board Gigabyte Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/819loXNzHQL._AC_SL1500_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte DDR4 Motherboard
+                        <br>
+                        <div class="smol">Gigabyte DDR4 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="Mother Board Gigabyte Intel">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81a48Z1GciL.__AC_SY300_SX300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Gigabyte DDR5 Motherboard
+                        <br>
+                        <div class="smol">Gigabyte DDR5 Socket</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="item-cont"data-category="HDD Western Digital 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/51vXhjvjqtL._AC_SY879_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 1TB Hard Drive
+                        <br>
+                        <div class="smol">Reliable storage, 1TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71pzrrdIS2L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 2TB Hard Drive
+                        <br>
+                        <div class="smol">High-capacity storage, 2TB size</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61RyqZErXNL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 4TB Hard Drive
+                        <br>
+                        <div class="smol">Great for storing large files, 4TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61sRp9JbMEL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 6TB Hard Drive
+                        <br>
+                        <div class="smol">Massive storage solution, 6TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61TmJikZkkL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 8TB Hard Drive
+                        <br>
+                        <div class="smol">High-performance storage, 8TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71XNPZx-CfL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 10TB Hard Drive
+                        <br>
+                        <div class="smol">Extensive storage for large data sets, 10TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71YeiA3pfFL._AC_SY606_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 12TB Hard Drive
+                        <br>
+                        <div class="smol">Enterprise-grade, 12TB storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71sBVLR+OWL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 14TB Hard Drive
+                        <br>
+                        <div class="smol">Massive capacity, 14TB storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71MDGnNGWYL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 16TB Hard Drive
+                        <br>
+                        <div class="smol">16TB high-capacity storage solution</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 16TB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71qNXFa9QKL._AC_SX569_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 18TB Hard Drive
+                        <br>
+                        <div class="smol">Massive storage, ideal for data centers, 18TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Western Digital 16TB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61im9nEOeUL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>WD 24TB Hard Drive
+                        <br>
+                        <div class="smol">Huge storage solution, 24TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="HDD Seagate 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/619Zbk3-e0L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 1TB Hard Drive
+                        <br>
+                        <div class="smol">Compact storage solution, 1TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/91poWWUpM8L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 2TB Hard Drive
+                        <br>
+                        <div class="smol">Reliable 2TB storage option</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71W0Rtw4+AL._AC_SY300_SX300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 4TB Hard Drive
+                        <br>
+                        <div class="smol">Great for storing large files, 4TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81mVD631L0L._AC_SY606_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 6TB Hard Drive
+                        <br>
+                        <div class="smol">Massive storage capacity, 6TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71GKZRx898L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 8TB Hard Drive
+                        <br>
+                        <div class="smol">High-capacity storage for extensive files, 8TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/716HT25NtkL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 10TB Hard Drive
+                        <br>
+                        <div class="smol">Perfect for heavy-duty storage needs, 10TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71lIdKapsiL._AC_SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 16TB Hard Drive
+                        <br>
+                        <div class="smol">High-capacity for business use, 16TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Seagate 16TB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71GSqEngEhL._AC_SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Seagate 24TB Hard Drive
+                        <br>
+                        <div class="smol">Massive data storage, 24TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="HDD Toshiba 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61Ld+N-dNtL._AC_SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 1TB Hard Drive
+                        <br>
+                        <div class="smol">Reliable storage for home or office, 1TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61JHNMbEMrL._AC_SX679_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 2TB Hard Drive
+                        <br>
+                        <div class="smol">Great for expanding storage needs, 2TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/712CNU+QimL._AC_SY879_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 4TB Hard Drive
+                        <br>
+                        <div class="smol">Store large amounts of data, 4TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71Mh0J8FoeL._AC_SY879_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 6TB Hard Drive
+                        <br>
+                        <div class="smol">Massive 6TB storage for demanding tasks</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 1TB-8TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71uVWSgYBXL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 8TB Hard Drive
+                        <br>
+                        <div class="smol">Perfect for high storage requirements, 8TB capacity</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71Wi43InX6L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 10TB Hard Drive
+                        <br>
+                        <div class="smol">Massive 10TB storage for extensive file storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/7135pMjVZ-L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 12TB Hard Drive
+                        <br>
+                        <div class="smol">Large storage capacity, 12TB for data-heavy tasks</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71LaWw3ySEL._AC_SY879_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 14TB Hard Drive
+                        <br>
+                        <div class="smol">14TB storage for professional or business needs</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 8TB-16TB">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71Rq2n2RtAL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 16TB Hard Drive
+                        <br>
+                        <div class="smol">Superb 16TB capacity for large-scale storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 16TB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71cT+tP1Z+L._AC_SY300_SX300_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 18TB Hard Drive
+                        <br>
+                        <div class="smol">Large capacity for massive data storage, 18TB</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="HDD Toshiba 16TB & Above">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71aS7VJDklL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Toshiba 20TB Hard Drive
+                        <br>
+                        <div class="smol">Extra-large capacity for enterprise or archival storage</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-cont"data-category="PC Casting Corsair">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71cSg4t54AL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 3000D PC Casing
+                        <br>
+                        <div class="smol">Compact and stylish case for modern builds</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PC Casting Corsair">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/81F-o3IrFRL._AC_SY879_.jpg" class="thumb">
+                <div class="img-desc">
+                    <p>Corsair 4000D PC Casing
+                        <br>
+                        <div class="smol">Mid tower case with excellent airflow design</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PC Casting Corsair">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71MMoud1NzL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb thumb-short">
+                <div class="img-desc">
+                    <p>Corsair 3500X PC Casing
+                        <br>
+                        <div class="smol">ATX case with a sleek design and great cooling support</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PC Casting Lian Li">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/71vLpHR6e4L._AC_SX569_.jpg" class="thumb thumb-short">
+                <div class="img-desc">
+                    <p>Lian Li 216 PC Casing
+                        <br>
+                        <div class="smol">Premium quality with excellent airflow and build quality</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PC Casting Lian Li">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/813TuwTlslL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb thumb-short">
+                <div class="img-desc">
+                    <p>Lancool PC Casing
+                        <br>
+                        <div class="smol">Great value with space for powerful setups</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item-cont"data-category="PC Casting Lian Li">
+            <div class="image-cont">
+                <img src="https://www.svgrepo.com/show/532473/heart.svg" class="heart-red">
+                <img src="https://m.media-amazon.com/images/I/61u3T74o81L.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="thumb thumb-short">
+                <div class="img-desc">
+                    <p>Sup 01-45L PC Casing
+                        <br>
+                        <div class="smol">Simple and compact design for small form factor builds</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!--ITEMS-->
+        <div class="club empty">
+        </div>
+    </div>
+</div>
+</span>
+    <!--Grid-->
+
+
+    <!--footer-->
+<div class="footer" id="footer">
+    <div class="footer-content">
+        <div class="footer-sections">
+            <div class="footer-column">
+                <h3>NEED HELP</h3>
+                <ul>
+                    <li><a href="mailto:synercom@gmail.com" target="_blank">Contact Us</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <ul>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Gift Vouchers</a></li>
+                    <li><a href="#">Community Initiatives</a></li>
+                    <li><a href="#">Synergy Army</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>MORE INFO</h3>
+                <ul>
+                    <li><a href="#">T&C</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>STORE NEAR ME</h3>
+                <ul>
+                    <li><a href="#">FC Road</a></li>
+                    <li><a href="#">Vimannagar</a></li>
+                    <li><a href="#">Kondhwa</a></li>
+                    <li><a href="#">MIDC</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app-section">
+            <h3>📱 EXPERIENCE THE SYNERCOM APP</h3>
+            <div class="app-buttons">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Download_on_the_App_Store_RGB_blk.svg/2560px-Download_on_the_App_Store_RGB_blk.svg.png" alt="Download on the App Store">
+            </div>
+        </div>
+
+        <div class="social-section">
+            <div>Follow Us:</div>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" style="background: #3b5998;"></a>
+                <a href="https://I=instagram.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" style="background: #e1306c;"></a>
+                <a href="https://snapchat.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fr/7/75/Snapchat.png" alt="Snapchat" style="background: #fffc00;"></a>
+                <a href="https://x.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/1200px-X_logo_2023.svg.png" alt="Twitter" style="background: #ffffff;"></a>
+            </div>
+        </div>
+
+        <div class="payment-shipping">
+            <div>
+                <span>100% Secure Payment:</span>
+                <img src="https://images.yourstory.com/cs/images/companies/logosC2051575978102071png?fm=auto&ar=1%3A1&mode=fill&fill=solid&fill-color=fff&format=auto&w=384&q=75" alt="PhonePe">
+                <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2020/11/25/5fb5308e224f3.png" alt="Google Pay">
+                <img src="https://m.media-amazon.com/images/G/01/amazonpayments/documentation/AmazonPay_BrandAssets/Logos/amazonpay-secondary-logo-rgb_clr.png" alt="Amazon Pay">
+                <img src="https://banner2.cleanpng.com/20180403/qte/avhloeech.webp" alt="Mastercard">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEt03XLHujIry51KoZxt0DLJDqQMz9k5IqUA&s" alt="Mobikwik">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYMs5YUA9Ro5Cq4Z27hlXSSHH6Y7CK6Tc6A&s" alt="Paytm">
+            </div>
+            <div>
+                <span>Shipping Partners:</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/DTDC_logo.png" alt="DTDC">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/United_Parcel_Service_logo_2014.svg/1200px-United_Parcel_Service_logo_2014.svg.png" alt="UPS">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/FedEx_logo.jpg/640px-FedEx_logo.jpg" alt="FedEx">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Blinkit-yellow-rounded.svg" alt="Blinkit">
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->

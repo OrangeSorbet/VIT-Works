@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+  font-family: Quicksand;
+}
+
+h1, h2, h4{
+
+  font-weight: 700;
+  letter-spacing:0.02em;
+  line-height:0.4em;
+}
+
+h1{
+  font-size:28px;
+}
+
+h2 {
+  font-size:28px;
+  text-align:center;
+  max-width:1300px;
+  margin:12px auto 80px;
+}
+
+h4 {
+  font-size:20px;
+  margin: 24px 0 20px 0;
+}
+
+p3 {
+  font-size:12px;
+}
+
+.grid {
+  display: grid;
+  margin:auto;
+  grid-template-columns: 7fr 5fr;
+  grid-column-gap: 32px;
+  width:100%;
+  max-width:1300px;
+  padding: 40px 40px 80px 40px;
+}
+
+.image-list {
+  display: inline-grid;
+}
+
+.image-list img {
+  width:100%;
+  padding-bottom:24px;
+}
+
+.info-section {
+  position: sticky;
+  top: 20px;
+  height:fit-content;
+}
+
+.option-title{
+  margin-top:16px;
+}
+
+.color-option {
+  margin-top:24px;
+  width:100%;
+  height:52px;
+}
+
+.color {
+  width:20px;
+  height:20px;
+  border-radius:100%;
+  border:solid 1px rgba(0,0,0,0.4);
+  margin-right:8px;
+  display:inline-flex;
+  float:left;
+  transition: all 0.2s;
+  cursor:pointer;
+}
+
+.color:hover {
+  border:solid 1px rgba(0,0,0,1);
+}
+
+.color:focus {
+  outline: none;
+}
+
+.button {
+  background-color:black;
+  color:white;
+  width:100%;
+  letter-spacing:0.06em;
+
+  font-weight: 700;
+  font-size:16px;
+  margin-top:24px;
+  padding: 15px 16px;
+  line-height:1;
+  opacity:100%;
+  transition: opacity 0.2s;
+  cursor:pointer;
+}
+
+.button:hover {
+  opacity:80%;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.related-items{
+  max-width:1300px;
+  margin:0 auto 60px;
+    padding:0 40px;
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-column-gap: 32px;
+}
+
+.gallery-item {
+  height:300px;
+  cursor:pointer;
+}
+
+.info-overlay {
+  background-color:rgba(0,0,0,0);
+  color:white;
+  height:100%;
+  padding:50% 40px;
+  box-sizing:border-box;
+  transition: all 0.2s;
+  opacity:0;
+  text-align:center;
+}
+
+.info-overlay:hover {
+  background-color:rgba(0,0,0,0.6);
+  opacity:1;
+}
+
+.info-overlay h2{
+  font-size:22px;
+  margin:0 0 16px;
+}
+
+
+
+
+
+/* number input */
+
+input {
+    width: 60px;
+    padding: 0;
+    margin: auto;
+    border: 0;
+    text-align: center;
+  display:block;
+}
+
+.input-container {
+    position: relative;
+    width: 92px;
+    margin-top: 8px;
+    font-size:14px;
+    padding:12px 0;
+    border: solid 1px rgba(0,0,0,0.6);
+    transition: all 0.4s;
+}
+
+.input-container input {
+  font-size:12px;
+}
+
+.input-container:hover, .input-container:focus{
+    border: solid 1px rgba(0,0,0,1);
+    outline: none;
+}
+
+
+#minus,
+#plus {
+    color: black;
+/*     font-weight: 700; */
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+#minus {
+    content: "-";
+    top: 0;
+    left: 16px;
+}
+
+#plus {
+    content: "+";
+    right: 16px;
+    top: 0;
+}

@@ -1,3 +1,69 @@
 add
 compare
 comparemany
+quicksort
+mergesort
+matrixmultiply
+
+List of Practical’s:
+1. Design and implement an algorithm to find the maximum and minimum elements in an
+array.
+Tasks:
+i) Write algorithm steps (pseudocode)
+ii) Implement in C++
+iii) Perform a priori analysis
+iv) Measure execution time for different input sizes (posterior analysis)
+v) Analyze time and space complexity
+
+2. Implement Binary Search on a sorted array.
+Tasks:
+i) Recursive and iterative implementations
+ii) Count number of comparisons
+iii) Compare best, worst, and average cases
+
+3. Implement Merge Sort using divide and conquer technique.
+Tasks:
+i) Recursive divide and merge steps
+ii) Trace recursion tree
+iii) Analyze time and space complexity
+
+4. Implement Quick Sort and compare with Merge Sort.
+Tasks:
+i) Use different pivot selection strategies
+ii) Compare execution time for sorted, reverse-sorted, and random data
+
+5. Solve the Fractional Knapsack Problem using the greedy approach.
+Tasks:
+i) Sort items based on profit/weight ratio
+ii) Calculate maximum profit
+iii) Show step-by-step selection
+
+6. Implement Job Sequencing Problem to maximize profit.
+Tasks:
+i) Sort jobs based on profit
+ii) Schedule jobs within deadlines
+iii) Display selected job sequence and total profit
+
+7. Find Minimum Cost Spanning Tree using Prim’s Algorithm.
+Tasks:
+i) Represent graph using adjacency matrix
+ii) Display selected edges and total cost
+
+8. Demonstrate Dynamic Programming approaches.
+Tasks:
+i) Fibonacci using:
+1. Top-Down (Memorization)
+2. Bottom-Up (Tabulation)
+ii) 0/1 Knapsack using DP table
+
+9. Solve the N Queens problem using backtracking.
+Tasks:
+i) Print all possible solutions
+ii) Count total solutions
+iii) Explain backtracking steps
+
+10. Implement Graph Coloring or Hamiltonian Cycle Problem using backtracking.
+Tasks:
+i) Check feasibility of color assignment / cycle formation
+ii) Print solution if exists
+11. To analyze a buggy Python program using SonarLint for automated bug detection and compare AI-assisted results with manual code inspection.

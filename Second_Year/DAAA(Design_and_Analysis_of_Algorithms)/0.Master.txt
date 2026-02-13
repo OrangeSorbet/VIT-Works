@@ -5,6 +5,8 @@ quicksort
 mergesort
 matrixmultiply
 Prims_algorithm
+BSearch_Iter
+BSearch_Recur
 
 List of Practical’s:
 1. Design and implement an algorithm to find the maximum and minimum elements in an

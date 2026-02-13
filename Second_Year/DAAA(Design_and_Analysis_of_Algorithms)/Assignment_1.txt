@@ -1,0 +1,83 @@
+Finding Maximum and Minimum in an Array
+
+---
+
+1. Problem
+
+Design and implement an algorithm to find the maximum and minimum elements in an array.
+
+---
+
+2. Algorithm (Pseudocode)
+
+Algorithm FindMinMax(A, n)
+
+Input: Array A of size n
+Output: Minimum and Maximum element
+
+Step 1: If n <= 0
+Print "Array is empty"
+Stop
+
+Step 2: Set min = A[0]
+Step 3: Set max = A[0]
+
+Step 4: For i = 1 to n - 1
+If A[i] < min
+min = A[i]
+If A[i] > max
+max = A[i]
+
+Step 5: Print min and max
+Step 6: End
+
+---
+
+3. A Priori Analysis
+
+The algorithm scans the array once.
+
+For each element there are at most two comparisons:
+One comparison with the current minimum
+One comparison with the current maximum
+
+Worst case comparisons = 2(n - 1)
+Best case comparisons = n - 1
+
+Number of operations increases linearly with n.
+
+---
+
+4. Posterior Analysis
+
+Execution time observed for different input sizes:
+
+Input size 1000
+Execution time small
+
+Input size 10000
+Execution time larger than for 1000
+
+Input size 100000
+Execution time larger than for 10000
+
+Execution time increases proportionally with input size.
+
+---
+
+5. Time Complexity
+
+Best Case: O(n)
+Worst Case: O(n)
+Average Case: O(n)
+
+---
+
+6. Space Complexity
+
+Space required for array = O(n)
+Extra space for min and max variables = O(1)
+
+Total Space Complexity = O(n)
+
+---
